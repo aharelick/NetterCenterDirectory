@@ -1,0 +1,16 @@
+{
+	"name": "NetterCenterDirectory",
+	"description": "Netter Center Directory",
+	"scripts": {
+	   "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"
+	},
+	"main": "app.js",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aharelick/NetterCenterDirectory"	
+	},
+	"dependencies": {
+		"ejs": "^2.3.1",
+		"express": "^4.12.2"
+	}
+}
