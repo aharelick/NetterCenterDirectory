@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title><%= title %></title>
+  <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/public/css/styles.css">
+  <% css_rels.forEach(function(rel){ %>
+  <link rel="stylesheet" href="/public/css/<%=rel%>">
+  <% });%>
+  <script type="text/javascript" src="/public/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <% js_files.forEach(function(link){ %>
+  <script type="text/javascript" src="/public/js/<%=link%>"></script>
+  <% });%>
+</head>
+<body>
+
+<header>
+  <div class="container">
+  </div>
+</header>

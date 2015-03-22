@@ -1,0 +1,58 @@
+#holder {
+    color: #4d4d4d;
+    width: 40%;
+    height: 660px;
+    border: 1px solid #888888;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    background-color: white;
+    padding-top: 80px;
+    padding-left: 45px;
+    padding-right: 45px;
+    font-size: .8em;
+}
+
+#main_hr {
+    background-color: #005dff;
+    height: 3px;
+    width: 100%;
+    margin-top: 35px;
+}
+
+#main2_hr {
+    background-color: #d4d5d7;
+    height: 3px;
+    width: 100%;
+    margin-top: 15px;
+}
+
+#mid {
+    padding: 20px;
+}
+
+.circle .image-wrap {
+    -webkit-border-radius: 50em;
+    -moz-border-radius: 50em;
+    border-radius: 50em;
+}
+
+.vert {
+    margin-left: 20px;
+    border-left: medium #4d4d4d solid;
+    height:100px;
+}
+
+#intro {
+    position: absolute;
+    display: inline;
+    width: 150px;
+    margin-left: 20px;
+}
+
+.small_hr {
+    background-color: #bebfc1;
+    height: 2px;
+    width: 100%;
+    margin-top: 5px;
+}
