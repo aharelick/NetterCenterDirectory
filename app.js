@@ -28,13 +28,13 @@ app.locals = {
 	js_files : []
 };
 
-app.all('*', function(req, res, next) {
-	fs.readFile('people.json', function(err, data) {
-		// store posts locally
-		res.locals.people = JSON.parse(data);
-		next();
-	});
-});
+// app.all('*', function(req, res, next) {
+// 	fs.readFile('people.json', function(err, data) {
+// 		// store posts locally
+// 		res.locals.people = JSON.parse(data);
+// 		next();
+// 	});
+// });
 
 app.get('/', function(req, res) {
 	res.render('index.ejs', {
