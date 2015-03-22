@@ -1,8 +1,28 @@
 var express = require('express');
+var path = require('path');
 var fs = require('fs');
+
+/**
+ * Controllers (route handlers).
+ */
+
+var controller = require('./controllers/main');
+
+/**
+ * Create Express server.
+ */
+
 var app = express();
 
-var port = 8000;
+/**
+ * Express configuration.
+ */
+
+app.set('port', process.env.PORT || 3000);
+// view engine setup
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, 'public')));
 
 // key = name of view file
 // value = [title, unique css files, unique js files]
@@ -12,15 +32,15 @@ var view_list = {
 	"error" : [ "Error", [], [] ],
 	"footer" : [ "Footer", [], [] ],
 	"header" : [ "Header", [], [] ],
-	"index" : [ "Netter Center Directory", [ "index.css" ] ],
-	"profile" : [ "Profile", [ "nav.css", "profile.css" ], [] ],
+//	"index" : [ "Netter Center Directory", [ "index.css" ] ],
+//	"profile" : [ "Profile", [ "nav.css", "profile.css" ], [] ],
 	"search" : [ "Search", [], [] ],
 	"search-results" : [ "Search Results", ["nav.css", "search-results.css"], ["search-results.js"] ],
-	"validate" : [ "Validate", [], [] ],
+//	"validate" : [ "Validate", [], [] ],
 	"post" : [ "Posts", [], [] ]
 };
 
-app.use('/public', express.static(__dirname + '/public'));
+app.use('/public', express.static(__dirname + '/public')); //is this needed?
 
 app.locals = {
 	title : 'Netter Center Directory',
@@ -36,14 +56,20 @@ app.locals = {
 // 	});
 // });
 
-app.get('/', function(req, res) {
-	res.render('index.ejs', {
-		title : "Netter Center Directory",
-		css_rels : [ "index.css" ],
-		js_files : [ "index.js" ]
-	});
-});
+/**
+ * Routes
+ */
 
+app.get('/', controller.index);
+app.get('/index', controller.index);
+app.post('/validate', controller.validate);
+app.get('/profile', controller.profile);
+
+/**
+* temporary way for front end to view all the pages. As a route in the main.js file is built by the backend team,
+* the backend team will comment out the route from the views_list so that the routing comes from the controller
+* in main.js, not from the function below.
+*/
 app.get('/:file', function(req, res) {
 	var file = req.params.file;
 	// check if file is in view_list, and render if it is
@@ -83,5 +109,12 @@ app.post("/:slug", function(req, res) {
 	}
 });
 
-app.listen(port);
-console.log('app is listening at localhost:' + port);
+/**
+ * Start Express server.
+ */
+
+app.listen(app.get('port'), function() {
+  console.log('Express server listening on port %d in %s mode', app.get('port'), app.get('env'));
+});
+
+module.exports = app;
