@@ -15,7 +15,7 @@ var view_list = {
 	"index" : [ "Netter Center Directory", [ "index.css" ] ],
 	"profile" : [ "Profile", [ "nav.css", "profile.css" ], [] ],
 	"search" : [ "Search", [], [] ],
-	"search-results" : [ "Search Results", [], [] ],
+	"search-results" : [ "Search Results", ["nav.css", "search-results.css"], ["search-results.js"] ],
 	"validate" : [ "Validate", [], [] ],
 	"post" : [ "Posts", [], [] ]
 };
