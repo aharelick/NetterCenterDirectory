@@ -30,7 +30,7 @@ var view_list = {
 	"create_profile" : [ "Create Profile", [], [] ],
 	"create-account" : [ "Create Account", [], [] ],
 	"error" : [ "Error", [], [] ],
-	"footer" : [ "Footer", [], [] ],
+//	"footer" : [ "Footer", [], [] ],
 	"header" : [ "Header", [], [] ],
 //	"index" : [ "Netter Center Directory", [ "index.css" ] ],
 //	"profile" : [ "Profile", [ "nav.css", "profile.css" ], [] ],
@@ -39,8 +39,6 @@ var view_list = {
 //	"validate" : [ "Validate", [], [] ],
 	"post" : [ "Posts", [], [] ]
 };
-
-app.use('/public', express.static(__dirname + '/public')); //is this needed?
 
 app.locals = {
 	title : 'Netter Center Directory',

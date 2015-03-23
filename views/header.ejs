@@ -4,15 +4,15 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title><%= title %></title>
-  <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.css">
-  <link rel="stylesheet" href="/public/css/styles.css">
+  <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/styles.css">
   <% css_rels.forEach(function(rel){ %>
-  <link rel="stylesheet" href="/public/css/<%=rel%>">
+  <link rel="stylesheet" href="/css/<%=rel%>">
   <% });%>
-  <script type="text/javascript" src="/public/js/jquery.min.js"></script>
-  <script type="text/javascript" src="/public/bootstrap/js/bootstrap.min.js"></script>
+  <script type="text/javascript" src="/js/jquery.min.js"></script>
+  <script type="text/javascript" src="/bootstrap/js/bootstrap.min.js"></script>
   <% js_files.forEach(function(link){ %>
-  <script type="text/javascript" src="/public/js/<%=link%>"></script>
+  <script type="text/javascript" src="/js/<%=link%>"></script>
   <% });%>
 </head>
 <body>
