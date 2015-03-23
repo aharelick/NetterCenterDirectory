@@ -10,7 +10,7 @@ exports.index = function(req, res) {
   });
 };
 
-exports.validate = function(req, res) {
+exports.validate = function(req, res, next) {
 	// server side validation, maybe make this more specific
 	req.assert('username', 'Your username is not a valid').len(4);
   req.assert('password', 'Your password is invalid').len(6);
@@ -36,7 +36,8 @@ exports.validate = function(req, res) {
   })(req, res, next);
 };
 
-exports.create_user = function(req, res) {
+exports.create_user = function(req, res, next) {
+	console.log("in create user");
 	req.assert('username', 'Username must be at least 4 characters long').len(4);
  	req.assert('password', 'Password must be at least 6 characters long').len(6);
  	req.assert('repassword', 'Passwords do not match').equals(req.body.password);
@@ -53,28 +54,28 @@ exports.create_user = function(req, res) {
     password: req.body.password,
   });
 
-  User.findOne({ email: req.body.username }, function(err, existingUser) {
+  User.findOne({ username: req.body.username }, function(err, existingUser) {
     if (existingUser) {
-      req.flash('errors', { msg: 'Account with that email address already exists.' });
+      req.flash('errors', { msg: 'Account with that username already exists.' });
       return res.redirect('/');
     }
     user.save(function(err) {
       if (err) return next(err);
       req.logIn(user, function(err) {
         if (err) return next(err);
-        res.redirect('/create-account');
+        res.redirect('/create-profile');
       });
     });
   });
 };
 
-exports.profile = function(req, res) {
-  res.render('index.ejs', {
-	title : "Profile",
-	css_rels : [ "nav.css", "profile.css" ],
-	js_files : []
-  });
-};
+// exports.profile = function(req, res) {
+//   res.render('index.ejs', {
+// 	title : "Profile",
+// 	css_rels : [ "nav.css", "profile.css" ],
+// 	js_files : []
+//   });
+// };
 
 exports.logout = function(req, res) {
   req.logout();
@@ -82,5 +83,5 @@ exports.logout = function(req, res) {
 };
 
 exports.profile = function(req, res) {
-  req.status(200).send("You got logged in as " + req.user.username + " with a hashed and salted password of " + req.user.password);
+  res.status(200).send("You got logged in as " + req.user.username + " with a hashed and salted password of " + req.user.password);
 };
