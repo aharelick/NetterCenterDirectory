@@ -1,6 +1,17 @@
 var express = require('express');
 var path = require('path');
 var fs = require('fs');
+var session = require('express-session');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
+var methodOverride = require('method-override');
+var _ = require('lodash');
+var MongoStore = require('connect-mongo')(session);
+var flash = require('express-flash');
+var mongoose = require('mongoose');
+var passport = require('passport');
 
 /**
  * Controllers (route handlers).
@@ -15,6 +26,15 @@ var controller = require('./controllers/main');
 var app = express();
 
 /**
+ * Connect to MongoDB.
+ */
+
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory');
+mongoose.connection.on('error', function() {
+  console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
+});
+
+/**
  * Express configuration.
  */
 
@@ -22,7 +42,23 @@ app.set('port', process.env.PORT || 3000);
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(methodOverride());
+app.use(cookieParser());
+app.use(session({
+  resave: true,
+  saveUninitialized: true,
+  secret: process.env.SESSION_SECRET || '',
+  store: new MongoStore({ url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', autoReconnect: true })
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
 app.use(express.static(path.join(__dirname, 'public')));
+
 
 // key = name of view file
 // value = [title, unique css files, unique js files]
@@ -45,6 +81,7 @@ app.locals = {
 	css_rels : [],
 	js_files : []
 };
+
 
 // app.all('*', function(req, res, next) {
 // 	fs.readFile('people.json', function(err, data) {
