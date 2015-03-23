@@ -7,9 +7,9 @@
     <button id="login-button" class="login-button">LOG IN</button>
     <div id="login-div" style="display: none;">
       <form id="login-form" method="POST" action="/validate">
-          &nbsp;&nbsp;<input type="text" name="username" placeholder="username"/>
+          &nbsp;&nbsp;<input type="text" name="username" placeholder="username" patten=".{4,}" required title="3 characters minimum"//>
           <br />
-          &nbsp;&nbsp;<input type="password" name="password" placeholder="password"/>
+          &nbsp;&nbsp;<input type="password" name="password" placeholder="password" patten=".{6,}" required title="6 characters minimum"//>
           <br />
           <button type="submit" class="login-button" style="width:90px; height: 44px">LOGIN</button>
       </form>
@@ -18,11 +18,11 @@
     <button id="create-button" class="create-button">CREATE AN ACCOUNT</button>
     <div id="create-div" style="display: none;">
       <form id="register-form" method="POST" action="/create-account">
-        &nbsp;&nbsp;<input type="text" name="username" placeholder="username"/>
+        &nbsp;&nbsp;<input type="text" name="username" placeholder="username" patten=".{4,}" required title="4 characters minimum"//>
         <br />
-        &nbsp;&nbsp;<input type="password" name="password" placeholder="password"/>
+        &nbsp;&nbsp;<input type="password" name="password" placeholder="password" patten=".{6,}" required title="6 characters minimum"//>
         <br />
-        &nbsp;&nbsp;<input type="password" name="repassword" placeholder="re-enter password"/>
+        &nbsp;&nbsp;<input type="password" name="repassword" placeholder="re-enter password" patten=".{6,}" required title="6 characters minimum"//>
         <br />
         <button type="submit" class="create-button" style="width:90px; height: 44px">CREATE</button>
       </form>
