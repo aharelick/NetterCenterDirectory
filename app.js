@@ -46,6 +46,7 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(expressValidator({}));
 app.use(methodOverride());
 app.use(cookieParser());
 app.use(session({
@@ -99,9 +100,11 @@ app.locals = {
  */
 
 app.get('/', controller.index);
+app.get('/logout', controller.logout);
 app.get('/index', controller.index);
 app.post('/validate', controller.validate);
 app.get('/profile', controller.profile);
+
 
 /**
 * temporary way for front end to view all the pages. As a route in the main.js file is built by the backend team,

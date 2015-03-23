@@ -3,8 +3,8 @@ var crypto = require('crypto');
 var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
-  email: { type: String, unique: true},
-  password: String,
+  username: { type: String, unique: true},
+  password: String
 });
 
 /**
