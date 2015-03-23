@@ -1,0 +1,16 @@
+<% if (messages.errors) { %>
+	<% for (i in messages.errors) { %>
+		<div class="alert alert-danger alert-dismissible fade in" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<span><%= messages.errors[i].msg %></span>
+		</div>
+	<% } %>
+<% } %>
+<% if (messages.info) { %>
+	<% for (i in messages.info) { %>
+		<div class="alert alert-success alert-dismissible fade in" role="alert">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			<span><%= messages.info[i].msg %></span>
+		</div>
+	<% } %>
+<% } %>
