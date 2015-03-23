@@ -49,10 +49,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(methodOverride());
 app.use(cookieParser());
 app.use(session({
-  resave: true,
-  saveUninitialized: true,
-  secret: process.env.SESSION_SECRET || '',
-  store: new MongoStore({ url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', autoReconnect: true })
+  resave: false,
+  saveUninitialized: false,
+  secret: process.env.SESSION_SECRET || 'temp',
+  store: new MongoStore({ 
+  	url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', 
+  	touchAfter: 24 * 3600,
+  	autoReconnect: true })
 }));
 app.use(passport.initialize());
 app.use(passport.session());

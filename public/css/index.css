@@ -6,12 +6,12 @@ button {
     -webkit-border-radius: 10px;
 }
 
-.login_button {
+.login-button {
 	background-color: #a8a9ad;
 	color: white;
 }
 
-.create_button {
+.create-button {
     background-color: #990304;
     color: white;
 }
