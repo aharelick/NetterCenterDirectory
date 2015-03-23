@@ -34,6 +34,8 @@ mongoose.connection.on('error', function() {
   console.error('MongoDB Connection Error. Please make sure that MongoDB is running.');
 });
 
+var pass = require('./config/pass');
+
 /**
  * Express configuration.
  */
@@ -56,6 +58,7 @@ app.use(session({
   store: new MongoStore({ 
   	url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', 
   	touchAfter: 24 * 3600,
+  	ttl: 10,
   	autoReconnect: true })
 }));
 app.use(passport.initialize());
@@ -68,7 +71,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // value = [title, unique css files, unique js files]
 var view_list = {
 	"create_profile" : [ "Create Profile", [], [] ],
-	"create-account" : [ "Create Account", [], [] ],
+//	"create-account" : [ "Create Account", [], [] ],
 	"error" : [ "Error", [], [] ],
 //	"footer" : [ "Footer", [], [] ],
 	"header" : [ "Header", [], [] ],
@@ -104,7 +107,7 @@ app.get('/index', controller.index);
 app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
-app.get('/profile', controller.profile);
+app.get('/profile', pass.isAuthenticated, controller.profile);
 
 
 /**
