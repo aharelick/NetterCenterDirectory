@@ -100,9 +100,10 @@ app.locals = {
  */
 
 app.get('/', controller.index);
-app.get('/logout', controller.logout);
 app.get('/index', controller.index);
+app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
+app.post('/create-user', controller.create_user);
 app.get('/profile', controller.profile);
 
 
