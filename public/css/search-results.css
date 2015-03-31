@@ -1,0 +1,85 @@
+.container {
+    margin: 10px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+#filter_pane {
+    height:300px;
+    width:20%;
+    float:left;
+    padding-top:0px;
+    margin-right: 80px;
+    border: 1px solid #787876;
+}
+
+#filter_title {
+    background-color: #A30000;
+    color: white;
+    vertical-align: center;
+    font: 13px/1.5 'Sim Sun', Helvetica, Arial, sans-serif;;
+    float:top;
+    vertical-align: middle;
+    height: 10%;
+}
+
+
+#filter_options {
+    background-color: white;
+    height: 90%;
+
+}
+
+#results_pane {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    float: left;
+    padding-top:0px;
+}
+
+
+#results_header {
+    background-color: white;
+    height: 40px;
+}
+
+#single_result {
+    background-color: white;
+    height: 150px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#rect {
+    height: 60%;
+    background-color: #0000FF;
+    width: 3.5%;
+    float: left;
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
+#circle {
+    float:left;
+    height: 90px;
+    width: 90px;
+    border-radius: 50px;
+    border: 2px solid #0000FF;
+    margin-top: 25px;
+    margin-right: 20px;
+}
+
+.inset-pic {
+    margin: 1px;
+}
+
+#profile_body {
+    float: left;
+    font: 11px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 90px;
+    width: 70%;
+    margin-top: 25px;
+    text-align: left;
+}
