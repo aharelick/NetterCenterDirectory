@@ -69,19 +69,15 @@ exports.create_user = function(req, res, next) {
   });
 };
 
-// exports.profile = function(req, res) {
-//   res.render('index.ejs', {
-// 	title : "Profile",
-// 	css_rels : [ "nav.css", "profile.css" ],
-// 	js_files : []
-//   });
-// };
+exports.profile = function(req, res) {
+  res.render('profile.ejs', {
+	title : "Profile",
+	css_rels : [ "nav.css", "profile.css" ],
+	js_files : []
+  });
+};
 
 exports.logout = function(req, res) {
   req.logout();
   res.redirect('/');
-};
-
-exports.profile = function(req, res) {
-  res.status(200).send("You got logged in as " + req.user.username + " with a hashed and salted password of " + req.user.password);
 };
