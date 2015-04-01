@@ -77,6 +77,14 @@ exports.profile = function(req, res) {
   });
 };
 
+exports.search_results = function(req, res) {
+  res.render('search-results.ejs', {
+  title : "Results",
+  css_rels : [ "nav.css", "search-results.css" ],
+  js_files : ["search-results.js"]
+  });
+};
+
 exports.logout = function(req, res) {
   req.logout();
   res.redirect('/');

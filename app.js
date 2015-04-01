@@ -48,7 +48,14 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(expressValidator({}));
+app.use(expressValidator({
+	customValidators: {
+	    category: function(param) {
+	        return param === "Student" || param === "Faculty" || param === "Community Member" || 
+	        param === "Netter Center Staff" || param === "Alumni or Patron";
+	    }
+ 	}   
+}));
 app.use(methodOverride());
 app.use(cookieParser());
 app.use(session({
@@ -58,7 +65,7 @@ app.use(session({
   store: new MongoStore({ 
   	url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', 
   	touchAfter: 24 * 3600,
-  	ttl: 10,
+  	ttl: 7 * 24 * 3600,
   	autoReconnect: true })
 }));
 app.use(passport.initialize());
@@ -108,6 +115,7 @@ app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
 app.get('/profile', pass.isAuthenticated, controller.profile);
+app.get('/search-results', pass.isAuthenticated, controller.search_results);
 
 
 /**
