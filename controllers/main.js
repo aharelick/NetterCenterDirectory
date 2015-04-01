@@ -73,7 +73,7 @@ exports.profile = function(req, res) {
   res.render('profile.ejs', {
 	title : "Profile",
 	css_rels : [ "nav.css", "profile.css" ],
-	js_files : []
+	js_files : [ "search.js"]
   });
 };
 
@@ -81,7 +81,7 @@ exports.search_results = function(req, res) {
   res.render('search-results.ejs', {
   title : "Results",
   css_rels : [ "nav.css", "search-results.css" ],
-  js_files : ["search-results.js"]
+  js_files : ["search.js"]
   });
 };
 
