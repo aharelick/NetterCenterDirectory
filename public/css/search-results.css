@@ -69,6 +69,10 @@
     border: 2px solid #0000FF;
     margin-top: 25px;
     margin-right: 20px;
+    background-image: url('/img/face.jpeg');
+    background-size: 75%;
+    background-repeat: no-repeat;
+    background-position: 50%;
 }
 
 .inset-pic {
