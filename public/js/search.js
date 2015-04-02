@@ -34,7 +34,7 @@ $(document).ready(function() {
       "West", //West High School
       "Lea" //Lea Elementary School
     ];
-    $( "#tags" ).autocomplete({
+    $( "#search-input" ).autocomplete({
       source: availableTags
     });
   });
