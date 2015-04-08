@@ -78,10 +78,31 @@ exports.profile = function(req, res) {
 };
 
 exports.search_results = function(req, res) {
+  // put in parameter validation
+  // check if sorted
+  var query = req.params.query;
+  var page = req.params.page;
+  if (page == null) {
+    page = 1;
+  }
+  data = [{
+    username: { "username"},
+    category: "category",
+    name: "First Name",
+    picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
+    bio: "I'm a bio.",
+  }, {
+    username: { "username"},
+    category: "category",
+    name: "First Name",
+    picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
+    bio: "I'm a bio.",
+  }];
   res.render('search-results.ejs', {
-  title : "Results",
-  css_rels : [ "nav.css", "search-results.css" ],
-  js_files : ["search.js"]
+    title : "Results",
+    css_rels : [ "nav.css", "search-results.css"],
+    js_files : [ "search-results.js", "search.js"],
+    results: data
   });
 };
 

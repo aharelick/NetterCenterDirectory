@@ -115,7 +115,7 @@ app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
 app.get('/profile', pass.isAuthenticated, controller.profile);
-app.get('/search-results', pass.isAuthenticated, controller.search_results);
+app.get('/search-results/:page/:query', pass.isAuthenticated, controller.search_results);
 
 
 /**
