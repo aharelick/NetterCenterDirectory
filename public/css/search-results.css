@@ -4,7 +4,7 @@
     width: 100%;
 }
 
-#filter_pane {
+#filter-pane {
     height:300px;
     width:20%;
     float:left;
@@ -13,7 +13,7 @@
     border: 1px solid #787876;
 }
 
-#filter_title {
+#filter-title {
     background-color: #A30000;
     color: white;
     vertical-align: center;
@@ -24,13 +24,13 @@
 }
 
 
-#filter_options {
+#filter-options {
     background-color: white;
     height: 90%;
 
 }
 
-#results_pane {
+#results-pane {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -40,12 +40,12 @@
 }
 
 
-#results_header {
+#results-header {
     background-color: white;
     height: 40px;
 }
 
-#single_result {
+#single-result {
     background-color: white;
     height: 150px;
     margin-top: 5px;
@@ -79,11 +79,34 @@
     margin: 1px;
 }
 
-#profile_body {
+#profile-body {
     float: left;
     font: 11px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 90px;
     width: 70%;
     margin-top: 25px;
     text-align: left;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+
+.name {
+
+}
+
+.updated {
+
+}
+
+.user-description {
+
+    
+
+}
+
+.tags {
+
+
 }
