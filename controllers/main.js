@@ -86,13 +86,13 @@ exports.search_results = function(req, res) {
     page = 1;
   }
   data = [{
-    username: { "username"},
+    username: "username",
     category: "category",
     name: "First Name",
     picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
     bio: "I'm a bio.",
   }, {
-    username: { "username"},
+    username: "username",
     category: "category",
     name: "First Name",
     picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
