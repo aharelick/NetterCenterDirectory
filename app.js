@@ -77,7 +77,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // key = name of view file
 // value = [title, unique css files, unique js files]
 var view_list = {
-	"create_profile" : [ "Create Profile", [], [] ],
+	"create_profile" : [ "Create Profile", ["nav.css", "create-profile.css"], [] ],
 //	"create-account" : [ "Create Account", [], [] ],
 	"error" : [ "Error", [], [] ],
 //	"footer" : [ "Footer", [], [] ],
