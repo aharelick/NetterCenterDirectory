@@ -66,8 +66,22 @@
 td {
     /*border-right: 3px solid black;*/
     padding: 5px;
+    padding-right: 15px;
 }
 table tr td:last-child,
 table tr th:last-child {
     border-right: 0;
+}
+
+#intro input {
+    height: 14px;
+    font-size: 10px;
+    line-height: 14px;
+}
+
+#top input {
+    height: 20px;
+    font-size: 13px;
+    line-height: 14px;
+    width: 300px;
 }
