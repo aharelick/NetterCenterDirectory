@@ -11,6 +11,7 @@ var userSchema = new mongoose.Schema({
   picture: String,
   phone: String,
   bio: String,
+  created_profile: { type: Boolean, default: false},
   tags: [
     {
       type: String,
