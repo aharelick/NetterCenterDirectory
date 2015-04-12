@@ -77,7 +77,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // key = name of view file
 // value = [title, unique css files, unique js files]
 var view_list = {
-	"create_profile" : [ "Create Profile", ["nav.css", "create-profile.css"], [] ],
+//	"create_profile" : [ "Create Profile", ["nav.css", "create-profile.css"], [] ],
 //	"create-account" : [ "Create Account", [], [] ],
 	"error" : [ "Error", [], [] ],
 //	"footer" : [ "Footer", [], [] ],
@@ -114,6 +114,8 @@ app.get('/index', controller.index);
 app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
+app.get('/create-profile', controller.create_profile_get);
+app.post('/create-profile', controller.create_profile_post);
 app.get('/profile', pass.isAuthenticated, controller.profile);
 app.get('/search-results', pass.isAuthenticated, controller.search_results);
 

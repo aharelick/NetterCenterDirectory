@@ -69,6 +69,19 @@ exports.create_user = function(req, res, next) {
   });
 };
 
+exports.create_profile_get = function(req, res) {
+  res.render('create_profile.ejs', {
+    title : "Create Profile",
+    css_rels : ["nav.css", "create-profile.css"],
+    js : []
+  });
+}
+
+exports.create_profile_post = function(req, res) {
+  // validation checks
+  res.redirect('profile');
+}
+
 exports.profile = function(req, res) {
   res.render('profile.ejs', {
 	title : "Profile",
