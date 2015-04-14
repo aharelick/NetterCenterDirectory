@@ -85,3 +85,7 @@ table tr th:last-child {
     line-height: 14px;
     width: 300px;
 }
+
+textarea {
+    resize: none;
+}
