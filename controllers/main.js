@@ -73,7 +73,7 @@ exports.create_profile_get = function(req, res) {
   res.render('create_profile.ejs', {
     title : "Create Profile",
     css_rels : ["nav.css", "create-profile.css"],
-    js : []
+    js_files : ["create-profile.js"]
   });
 }
 

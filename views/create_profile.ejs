@@ -4,7 +4,16 @@
 
 <div id="holder">
     <div id="top">
-        <div class="pull-left"> <input class="form-control" type="text" name="stakeholder" placeholder="WHAT IS YOUR STAKEHOLDER GROUP?"></div>
+        <div class="pull-left"> 
+            <select class="form-control" id="stakeholder" name="stakeholder">
+                <option value="" disabled selected>WHAT IS YOUR STAKEHOLDER GROUP?</option>
+                <option value="students">Students</option>
+                <option value="faculty">Faculty</option>
+                <option value="community-members">Community Members</option>
+                <option value="netter-staff">Netter Staff</option>
+                <option value="alumni-patrons">Almni and Patrons</option>
+            </select>
+        </div>
         <div class="pull-right"></div>
     </div>
     <hr id="main_hr">
@@ -24,22 +33,22 @@
     </div>
     <hr id="main2_hr">
     <div class="info-horiz">
-    <br>Select all tags that are relevant to your involvement with The Netter Center. Tags act as labels for your profile, so that other users can quickly identify key characteristics of your involvement. Other users will be able to search, connect, and collaborate with you based on your tags.</br>
+        <br>Select all tags that are relevant to your involvement with The Netter Center. Tags act as labels for your profile, so that other users can quickly identify key characteristics of your involvement. Other users will be able to search, connect, and collaborate with you based on your tags.</br>
         <table>
             <tr>
-                <td>Attribute 1</td>
+                <td id="att1">Attribute 1</td>
                 <td class="tags">
                     <input class="form-control" type="text" name="att3-tags" placeholder="enter your tag(s) here">
                 </td>
             </tr>
             <tr>
-                <td>Attribute 2</td>
+                <td id="att2">Attribute 2</td>
                 <td class="tags">
                     <input class="form-control" type="text" name="att3-tags"placeholder="enter your tag(s) here">
                 </td>
             </tr>
             <tr>
-                <td>Attribute 3</td>
+                <td id="att3">Attribute 3</td>
                 <td class="tags">
                     <input class="form-control" type="text" name="att3-tags" placeholder="enter your tag(s) here">
                 </td>

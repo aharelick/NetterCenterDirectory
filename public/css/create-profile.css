@@ -1,7 +1,7 @@
 #holder {
     color: #4d4d4d;
     width: 40%;
-    height: 660px;
+    height: 1060px;
     border: 1px solid #888888;
     margin-left: auto;
     margin-right: auto;
@@ -75,7 +75,7 @@ table tr th:last-child {
 
 #intro input {
     height: 14px;
-    font-size: 10px;
+    font-size: 12px;
     line-height: 14px;
 }
 
