@@ -17,7 +17,7 @@ gray lines are 1px wide*/
 }
 
 #filter-pane {
-    height:300px;
+    height:70%;
     width:20%;
     float:left;
     padding-top:0px;
@@ -38,7 +38,32 @@ gray lines are 1px wide*/
 
 #filter-options {
     background-color: white;
-    height: 90%;
+    height: 70%;
+
+}
+
+#legend-title {
+    background-color: #A30000;
+    color: white;
+    vertical-align: center;
+    font: 11px, Edmondsans, Helvetica, Arial, sans-serif;;
+    float:top;
+    vertical-align: middle;
+    height: 10%;
+}
+
+#legend-pane {
+    height:70%;
+    width:20%;
+    float:left;
+    padding-top:0px;
+    margin-right: 80px;
+    border: 1px solid #787876;
+}
+
+#legend {
+    background-color: white;
+    height: 70%;
 
 }
 
@@ -74,6 +99,16 @@ gray lines are 1px wide*/
     margin-top: 25px;
     margin-right: 25px;
 }
+
+.little-box {
+    height: 5%;
+    background-color: #0000FF;
+    width: 5%;
+    float: left;
+    margin-top: 25px;
+    margin-right: 25px;
+}
+
 
 .circle {
     float:left;
