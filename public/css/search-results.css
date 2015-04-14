@@ -1,3 +1,15 @@
+/*SEARCH RESULTS PAGE—
+filter search results by:  Edmondsans 11pt, medium…letter spacing is 70
+alumni & patrons, netter staff, faculty, etc…: 10pt, regular…letter spacing is 50
+9,999 search results…: 10pt, regular…letter spacing is 20
+name last name, last updated…: 10pt, regular…letter spacing is 70
+bio…: 12pt, regular…letter spacing is 50
+volunteer, philly schools, students, etc…: 9pt, regular…letter spacing is 50
+
+colored lines are 2px wide
+gray lines are 1px wide*/
+
+
 .container {
     margin: 10px;
     margin-top: 30px;
@@ -17,7 +29,7 @@
     background-color: #A30000;
     color: white;
     vertical-align: center;
-    font: 13px/1.5 'Sim Sun', Helvetica, Arial, sans-serif;;
+    font: 11px, Edmondsans, Helvetica, Arial, sans-serif;;
     float:top;
     vertical-align: middle;
     height: 10%;
@@ -45,14 +57,16 @@
     height: 40px;
 }
 
-#single-result {
+
+/*STYLE FOR EACH RESULT - SHOULD ALL BE CLASSES*/
+.single-result {
     background-color: white;
     height: 150px;
     margin-top: 5px;
     margin-bottom: 5px;
 }
 
-#rect {
+.rect {
     height: 60%;
     background-color: #0000FF;
     width: 3.5%;
@@ -61,7 +75,7 @@
     margin-right: 25px;
 }
 
-#circle {
+.circle {
     float:left;
     height: 90px;
     width: 90px;
@@ -79,16 +93,8 @@
     margin: 1px;
 }
 
-#profile-body {
-    float: left;
-    font: 11px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    height: 90px;
-    width: 70%;
-    margin-top: 25px;
-    text-align: left;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+.profile-body {
+
 }
 
 
@@ -101,9 +107,15 @@
 }
 
 .user-description {
-
-    
-
+    float: left;
+    font: 11px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    height: 90px;
+    width: 400px;
+    margin-top: 25px;
+    text-align: left;
+    display: block; /* Fallback for non-webkit */
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .tags {
