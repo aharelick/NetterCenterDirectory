@@ -1,6 +1,7 @@
 //improved but not perfect
 
 $(document).ready(function() {
+  console.log("here");
     var availableTags = [
       "literacy",
       {label: "elementary education", value: "elem. ed."}, 
