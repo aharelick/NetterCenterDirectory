@@ -1,7 +1,7 @@
 <% include header %>
 <% include nav %>
 
-<div class="container">
+<main role="main">
 	<div id="filter-pane">
 
 		<div id="filter-title">
@@ -30,9 +30,8 @@
 				<span class="tags"> netter </span>
 			</div>
 		</div>
-
 	</div>
-</div>
+</main>
 <script>
 	$(document).ready(function() {
   		var results = (<%-JSON.stringify(results)%>);
