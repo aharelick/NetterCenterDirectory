@@ -2,40 +2,39 @@
 <% include nav %>
 
 <main role="main">
-	<div id="filter-pane">
+	<div id="left">
+		<div id="filter-pane">
 
-		<div id="filter-title">
-			FILTER SEARCH RESULTS BY:
+			<div id="filter-title">
+				FILTER SEARCH RESULTS BY:
+			</div>
+
+			<div id="filter-options" style="text-align:left;">
+				<form>
+				<input type="radio" name="filter" value="alumni">  alumni & patrons<br>
+				<input type="radio" name="filter" value="netter staff">  netter staff<br>
+				<input type="radio" name="filter" value="faculty">  faculty<br>
+				<input type="radio" name="filter" value="students">  students<br>
+				<input type="radio" name="filter" value="community">  community members<br>
+				<input type="radio" name="filter" value="most-recent">  most recently updated<br>
+				<input type="radio" name="filter" value="least-recent">  least recently updated<br>
+				</form>
+			</div>
 		</div>
 
-		<div id="filter-options" style="text-align:left;">
-			<form>
-			<input type="radio" name="filter" value="alumni">  alumni & patrons<br>
-			<input type="radio" name="filter" value="netter staff">  netter staff<br>
-			<input type="radio" name="filter" value="faculty">  faculty<br>
-			<input type="radio" name="filter" value="students">  students<br>
-			<input type="radio" name="filter" value="community">  community members<br>
-			<input type="radio" name="filter" value="most-recent">  most recently updated<br>
-			<input type="radio" name="filter" value="least-recent">  least recently updated<br>
-			</form>
+		<div id="legend-pane">
+			<div id="legend-title">
+				LEGEND:
+			</div>
+			<div id="legend-body" style="text-align:left;">
+				<div class="littlebox">  alumni & patrons</div>
+				<div class="littlebox">  netter staff</div>
+				<div class="littlebox">  faculty</div>
+				<div class="littlebox">  students</div>
+				<div class="littlebox">  community members</div>
+			</div>
 		</div>
 	</div>
-	<br>
-
-	<div id="legend-pane">
-		<div id="legend-title">
-			LEGEND:
-		</div>
-		<div id="legend" style="text-align:left;">
-			<div class="littlebox">  alumni & patrons</div>
-			<div class="littlebox">  netter staff</div>
-			<div class="littlebox">  faculty</div>
-			<div class="littlebox">  students</div>
-			<div class="littlebox">  community members</div>
-		</div>
-	</div>
-	<br>
-
 	<div id="results-pane">
 
 		<div id="results-header">
