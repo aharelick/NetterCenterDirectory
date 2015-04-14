@@ -33,6 +33,15 @@
 
 	</div>
 </div>
+<script>
+	$(document).ready(function() {
+  		var results = (<%-JSON.stringify(results)%>);
+  		$.each( results, function( key, value ) {
+  			console.log(value);
+			console.log(value.username);
+		});
+	});
+</script>
 
 <% include footer %>
 

@@ -109,6 +109,15 @@ app.locals = {
  * Routes
  */
 
+// function isAtLeastAdmin(req, res, next) {  
+//     if (req.user.role === "Admin" || req.user.role === "Webmaster") {
+//         next();
+//     } else {
+//         req.flash('errors', { msg: 'You must be an admin to view this page.' });
+//         res.redirect('/');
+//     }
+// };
+
 app.get('/', controller.index);
 app.get('/index', controller.index);
 app.get('/logout', controller.logout);

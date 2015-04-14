@@ -99,17 +99,17 @@ exports.search_results = function(req, res) {
     page = 1;
   }
   data = [{
-    username: "username",
-    category: "category",
-    name: "First Name",
+    username: "username1",
+    category: "category1",
+    name: "First Name11",
     picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
-    bio: "I'm a bio.",
+    bio: "I'm a bio.1",
   }, {
-    username: "username",
-    category: "category",
-    name: "First Name",
+    username: "username2",
+    category: "category2",
+    name: "First Name2",
     picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
-    bio: "I'm a bio.",
+    bio: "I'm a bio.2",
   }];
   res.render('search-results.ejs', {
     title : "Results",
