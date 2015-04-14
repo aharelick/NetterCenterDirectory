@@ -14,6 +14,7 @@ gray lines are 1px wide*/
     margin: 10px;
     margin-top: 30px;
     width: 100%;
+    text-align: left;
 }
 
 #filter-pane {
@@ -33,6 +34,7 @@ gray lines are 1px wide*/
     float:top;
     vertical-align: middle;
     height: 10%;
+    text-align: center;
 }
 
 
@@ -80,6 +82,7 @@ gray lines are 1px wide*/
 #results-header {
     background-color: white;
     height: 40px;
+    text-align: center;
 }
 
 
@@ -133,27 +136,33 @@ gray lines are 1px wide*/
 }
 
 
-.name {
+.name .updated {
+    text-align: left;
+    font-size: 10px;
 
 }
 
 .updated {
+    color: blue;
 
 }
 
 .user-description {
+    display: block;
     float: left;
-    font: 11px/1.5 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     height: 90px;
     width: 400px;
     margin-top: 25px;
     text-align: left;
-    display: block; /* Fallback for non-webkit */
+    display: block;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .tags {
-
-
+    display: block;
+    float: bottom;
+    vertical-align: bottom;
 }

@@ -1,7 +1,7 @@
 <% include header %>
 <% include nav %>
 
-<div class="container">
+<main role="main">
 	<div id="filter-pane">
 
 		<div id="filter-title">
@@ -42,23 +42,26 @@
 			____ search results for "____".
 		</div>
 
-		<div class="single-result">
-			<div class="rect"></div>
-			<div class="circle"></div>
-			<div class="profile-body">
-				<span class="name"> NAME LASTNAME </span>
-				<span class="updated"> last updated XX-XX-XXXX </span>
-				<span class="user-description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras ac ipsum viverra, tincidunt metus ut, accumsan tortor. Suspendisse venenatis, sem molestie sagittis hendrerit, nisi elit accumsan quam, eget malesuada lectus augue ac quam. Cras dapibus fringilla est, vel dapibus tortor sagittis vel. Nullam mattis, urna vel tempor rhoncus, urna diam mattis ex, volutpat dapibus dolor diam in eros. Aliquam erat volutpat. Duis ac velit at ante sagittis eleifend et ornare dolor. Vivamus nisl nisi, rutrum luctus ipsum at, finibus ultrices nibh. Mauris volutpat accumsan tellus id faucibus. Praesent hendrerit sodales velit, et dignissim ante feugiat at. </span>
-				<span class="tags"> netter </span>
-			</div>
-		</div>
+		<div class="results"></div>
 
 	</div>
-</div>
+</main>
 <script>
 	$(document).ready(function() {
   		var results = (<%-JSON.stringify(results)%>);
   		$.each( results, function( key, value ) {
+  			var html = '<div class="single-result">' +
+			'<div class="rect"></div>' +
+			'<div class="circle"></div>' +
+			'<div class="profile-body">' +
+				'<span class="name">' + value.username + '</span>' +
+				'<span class="updated"> last updated XX-XX-XXXX </span>' +
+				'<span class="user-description">' + value.bio + '</span>' +
+				'<span class="tags"> nette </span>' +
+			'</div>' +
+		'</div>'
+		$(".circle").css('background-image', 'url(' + value.picture + ')');
+  			$( ".results" ).append( html );
   			console.log(value);
 			console.log(value.username);
 		});
