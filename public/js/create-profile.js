@@ -1,4 +1,17 @@
 $(document).ready(function () {
+
+	// gets all the tags from the json file and makes them options
+	// in the select element for the library to use
+	$.getJSON('/json/tags.json', function(data) {
+		$.each(data, function(index, value) {
+			$('.tag-select').append('<option value="' + value + '">' + value + '</option>');
+		});
+		$('.tag-select').tokenize({
+			newElements: false
+		});
+	});
+
+
 	// helper function to change the text of attributes
 	function changeAtt(att1, att2, att3) {
 		$("#att1").html(att1);
