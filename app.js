@@ -51,8 +51,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator({
 	customValidators: {
 	    stakeholder: function(param) {
-	        return param === "Student" || param === "Faculty" || param === "Community Member" || 
-	        param === "Netter Center Staff" || param === "Alumni or Patron";
+	        return param === "students" || param === "faculty" || param === "community-members" || 
+	        param === "netter-staff" || param === "alumni-patrons";
 	    }
  	}   
 }));
@@ -109,22 +109,31 @@ app.locals = {
  * Routes
  */
 
-function createdProfile(req, res, next) {  
+// There's probably a better way to do this twice
+function toCreateProfile(req, res, next) {  
     if (req.user.created_profile) {
-        res.redirect('/profile')
+        next();
     } else {
         res.redirect('/create-profile');
     }
 };
+
+function toProfile(req, res, next) {
+	if (!req.user.created_profile) {
+        next();
+    } else {
+        res.redirect('/profile');
+    }
+}
 
 app.get('/', controller.index);
 app.get('/index', controller.index);
 app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
-app.get('/create-profile', controller.create_profile_get);
-app.post('/create-profile', controller.create_profile_post);
-app.all('*', pass.isAuthenticated);
+app.get('/create-profile', toProfile, controller.create_profile_get);
+app.post('/create-profile', toProfile, controller.create_profile_post);
+app.all('*', pass.isAuthenticated, toCreateProfile);
 app.get('/profile', controller.profile);
 app.get('/search-results', controller.search_results);
 

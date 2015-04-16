@@ -77,36 +77,63 @@ exports.create_profile_get = function(req, res) {
   });
 }
 
-exports.create_profile_post = function(req, res) {
+function stakeHolderParser(input) {
+  switch(input) {
+    case "students":
+      return "Student";
+    case "faculty":
+      return "Faculty";
+    case "community-members":
+      return "Community Member";
+    case "netter-staff":
+      return "Netter Center Staff";
+    case "alumni-patrons":
+      return "Alumni or Patron";
+  }
+}
+
+exports.create_profile_post = function(req, res, next) {
   // validation checks
   req.assert('name', 'Your name cannot be blank').notEmpty();
   req.assert('email', 'Your email cannot be blank').isEmail();
-  req.assert('bio', 'Your bio cannot be blank').isEmail();
-  //req.assert('phone', 'Your phone number is not valid').isEmail();
+  req.assert('bio', 'Your bio cannot be blank').notEmpty();
+  req.assert('phone', 'Your phone number is not valid').notEmpty();
   //req.assert('password', 'Password must be at least 6 characters long').len(6);
   req.assert('stakeholder', 'Not a valid role').stakeholder();
 
   var errors = req.validationErrors();
-
   if (errors) {
     req.flash('errors', errors);
+    console.log("there were flash errrors");
     return res.redirect('/create-profile');
   }
 
+  var stakeholder = stakeHolderParser(req.body.stakeholder);
+
   User.findOne({username: req.user.username}, function(err, current_user) {
-    console.log(req.body.stakeholder);
-    console.log(req.body.name);
-    console.log(req.body.email);
-    console.log(req.body.phone);
-
-    //console.log(req)
-
+    // not doing picture
+    current_user.category = stakeholder;
+    current_user.name = req.body.name;
+    current_user.email = req.body.email;
+    current_user.phone = req.body.phone;
+    current_user.bio = req.body.bio;
+    current_user.updated = Date.now();
+    current_user.created_profile = true;
+    current_user.save(function(err) {
+      if (err) {
+        next(err)
+      } else {
+        res.redirect('/profile');
+      }
+    });
   });
 }
 
 exports.profile = function(req, res) {
+  var user = {name: req.user.name, phone: req.user.phone, email: req.user.email, bio: req.user.bio};
   res.render('profile.ejs', {
 	title : "Profile",
+  user: user,
 	css_rels : [ "nav.css", "profile.css" ],
 	js_files : [ "search.js"]
   });

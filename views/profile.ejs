@@ -12,15 +12,15 @@
         <img src="/img/face.jpeg" height=100px width=100px />
         <span class="vert"></span>
         <div id="intro">
-            Name Lastname
+            <%= user.name %>
             <hr class="small_hr">
-            email@gmail.com
+            <%= user.email %>
             <hr class="small_hr">
-            555.555.5555
+            <%= user.phone %>
         </div>
     </div>
     <div id="description">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque tincidunt velit orci, id bibendum neque lobortis vel. Vestibulum eros magna, maximus nec nisi eu, pulvinar hendrerit lorem. Donec nec elementum ligula, et placerat nisi. Morbi mi sem, viverra in purus ut, tincidunt aliquam odio. Maecenas nec sapien quis turpis aliquet ultricies vitae sit amet nibh. Aenean luctus justo eros, quis accumsan lacus gravida sed. Cum sociis.
+        <%= user.bio %>
     </div>
     <hr id="main2_hr">
     <div class="info-horiz">

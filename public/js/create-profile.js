@@ -7,16 +7,17 @@ $(document).ready(function () {
 			$('.tag-select').append('<option value="' + value + '">' + value + '</option>');
 		});
 		$('.tag-select').tokenize({
-			newElements: false
+			newElements: false,
+			placeholder: "please enter your tag(s) here..."
 		});
 	});
 
 
 	// helper function to change the text of attributes
 	function changeAtt(att1, att2, att3) {
-		$("#att1").html(att1);
-		$("#att2").html(att2);
-		$("#att3").html(att3);
+		$(".attr:eq(0)").html(att1);
+		$(".attr:eq(1)").html(att2);
+		$(".attr:eq(2)").html(att3);
 	}
 
 	// make attributes correspond to stakeholder position type
@@ -38,5 +39,21 @@ $(document).ready(function () {
 			changeAtt("Work Experience", "Support Interests", "Projects/Specific Involvement w/ Netter");
 		}
 	});
+
+
+	/* creates form and submits it to the POST url
+	I did this like this because I didn't know how the the form would deal
+	with the weird format of tags in the select boxes. In the future we should be graying
+	this box out when the user shouldn't be able to submit (all the fields not filled out)
+	and maybe make the whole page a form. */
+	$('#submit').click(function() {
+		var form = $('<form />', {
+			action: '/create-profile',
+			method: 'POST',
+			style: 'display: none;'
+			});
+			$('.data').appendTo(form);
+			form.appendTo('body').submit();
+	})
 	
 });

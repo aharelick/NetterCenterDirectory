@@ -5,7 +5,7 @@
 <div id="holder">
     <div id="top">
         <div> 
-            <select class="form-control" id="stakeholder" name="stakeholder">
+            <select class="form-control data" id="stakeholder" name="stakeholder">
                 <option value="" disabled selected>SELECT YOUR GROUP</option>
                 <option value="students">Students</option>
                 <option value="faculty">Faculty</option>
@@ -19,43 +19,44 @@
     <hr id="main_hr">
     <div id="mid">
         <div id="intro">
-            <input class="form-control" type="text" name="name" placeholder="name">
+            <input class="form-control data" type="text" name="name" placeholder="name">
             <hr class="small_hr">
-            <input class="form-control" type="text" name="email" placeholder="email address">
+            <input class="form-control data" type="text" name="email" placeholder="email address">
             <hr class="small_hr">
-            <input class="form-control" type="text" name="phone" placeholder="phone number">
+            <input class="form-control data" type="text" name="phone" placeholder="phone number">
         </div>
-          <form>
             Please upload a image of yourself for the profile.
-            <input type="file" name="image_file" size="40" enctype="multipart/form-data">
-          </form>
+            <input type="file" class="data" name="image-file" size="40" enctype="multipart/form-data">
     </div>
     <div id="description">
-        <textarea class="form-control" rows="7" placeholder="In less than 100 words, please describe your affiliation with The Netter Center. Consider the following: 1) In what capacity have you worked with The Netter Center? and 2) What has been the focus of your involvement?"></textarea>
+        <textarea class="form-control data" name="bio" rows="7" placeholder="In less than 100 words, please describe your affiliation with The Netter Center. Consider the following: 1) In what capacity have you worked with The Netter Center? and 2) What has been the focus of your involvement?"></textarea>
     </div>
     <hr id="main2_hr">
     <div class="info-horiz">
         <br>Select all tags that are relevant to your involvement with The Netter Center. Tags act as labels for your profile, so that other users can quickly identify key characteristics of your involvement. Other users will be able to search, connect, and collaborate with you based on your tags.</br>
         <table style="padding-top:100px">
             <tr>
-                <td id="att1">Attribute 1</td>
+                <td class="attr">Attribute 1</td>
                 <td class="tags">
                     <select class="tag-select" multiple="multiple"></select>
                 </td>
             </tr>
             <tr>
-                <td id="att2">Attribute 2</td>
+                <td class="attr">Attribute 2</td>
                 <td class="tags">
                     <select class="tag-select" multiple="multiple"></select>
                 </td>
             </tr>
             <tr>
-                <td id="att3">Attribute 3</td>
+                <td class="attr">Attribute 3</td>
                 <td class="tags">
                     <select class="tag-select" multiple="multiple"></select>
                 </td>
             </tr>
         </table>
+    </div>
+    <div id="submit-btn-wrapper">  
+        <a id="submit" class="btn btn-lg btn-primary">Submit</a>
     </div>
 </div>
 
