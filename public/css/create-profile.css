@@ -1,8 +1,8 @@
 #holder {
     color: #4d4d4d;
     width: 40%;
-    height: 750px;
-    border: 1px solid #888888;
+    border-left: 1px solid #888888;
+    border-right: 1px solid #888888;
     margin-left: auto;
     margin-right: auto;
     margin-top: 15px;
@@ -10,6 +10,7 @@
     padding-top: 30px;
     padding-left: 45px;
     padding-right: 45px;
+    padding-bottom: 30px;
     font-size: .8em;
 }
 
@@ -99,5 +100,5 @@ textarea {
 }
 
 .tag-select {
-    width: 350px;
+    width: 320px;
 }

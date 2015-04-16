@@ -1,7 +1,6 @@
 #holder {
     color: #4d4d4d;
     width: 40%;
-    height: 100%;
     border-left: 1px solid #888888;
     border-right: 1px solid #888888;
     margin-left: auto;
@@ -10,6 +9,7 @@
     padding-top: 80px;
     padding-left: 45px;
     padding-right: 45px;
+    padding-bottom: 30px;
     font-size: .8em;
 }
 
