@@ -79,7 +79,29 @@ exports.create_profile_get = function(req, res) {
 
 exports.create_profile_post = function(req, res) {
   // validation checks
-  res.redirect('profile');
+  req.assert('name', 'Your name cannot be blank').notEmpty();
+  req.assert('email', 'Your email cannot be blank').isEmail();
+  req.assert('bio', 'Your bio cannot be blank').isEmail();
+  //req.assert('phone', 'Your phone number is not valid').isEmail();
+  //req.assert('password', 'Password must be at least 6 characters long').len(6);
+  req.assert('stakeholder', 'Not a valid role').stakeholder();
+
+  var errors = req.validationErrors();
+
+  if (errors) {
+    req.flash('errors', errors);
+    return res.redirect('/create-profile');
+  }
+
+  User.findOne({username: req.user.username}, function(err, current_user) {
+    console.log(req.body.stakeholder);
+    console.log(req.body.name);
+    console.log(req.body.email);
+    console.log(req.body.phone);
+
+    //console.log(req)
+
+  });
 }
 
 exports.profile = function(req, res) {

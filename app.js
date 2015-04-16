@@ -50,7 +50,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator({
 	customValidators: {
-	    category: function(param) {
+	    stakeholder: function(param) {
 	        return param === "Student" || param === "Faculty" || param === "Community Member" || 
 	        param === "Netter Center Staff" || param === "Alumni or Patron";
 	    }
@@ -109,14 +109,13 @@ app.locals = {
  * Routes
  */
 
-// function isAtLeastAdmin(req, res, next) {  
-//     if (req.user.role === "Admin" || req.user.role === "Webmaster") {
-//         next();
-//     } else {
-//         req.flash('errors', { msg: 'You must be an admin to view this page.' });
-//         res.redirect('/');
-//     }
-// };
+function createdProfile(req, res, next) {  
+    if (req.user.created_profile) {
+        res.redirect('/profile')
+    } else {
+        res.redirect('/create-profile');
+    }
+};
 
 app.get('/', controller.index);
 app.get('/index', controller.index);
@@ -125,8 +124,9 @@ app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
 app.get('/create-profile', controller.create_profile_get);
 app.post('/create-profile', controller.create_profile_post);
-app.get('/profile', pass.isAuthenticated, controller.profile);
-app.get('/search-results', pass.isAuthenticated, controller.search_results);
+app.all('*', pass.isAuthenticated, createdProfile);
+app.get('/profile', controller.profile);
+app.get('/search-results', controller.search_results);
 
 
 /**
