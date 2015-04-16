@@ -6,7 +6,7 @@
     <div id="top">
         <div> 
             <select class="form-control" id="stakeholder" name="stakeholder">
-                <option value="" disabled selected>SELECT YOUR GROUP</option>
+                <option value="" disabled selected>PLEASE SELECT YOUR GROUP</option>
                 <option value="students">Students</option>
                 <option value="faculty">Faculty</option>
                 <option value="community-members">Community Members</option>
@@ -25,10 +25,12 @@
             <hr class="small_hr">
             <input class="form-control" type="text" name="phone" placeholder="phone number">
         </div>
+        <div id="imageform">
           <form>
             Please upload a image of yourself for the profile.
-            <input type="file" name="image_file" size="40" enctype="multipart/form-data">
+            <input type="file" id="imagesubmit" name="image_file" size="30" enctype="multipart/form-data">
           </form>
+        </div>
     </div>
     <div id="description">
         <textarea class="form-control" rows="7" placeholder="In less than 100 words, please describe your affiliation with The Netter Center. Consider the following: 1) In what capacity have you worked with The Netter Center? and 2) What has been the focus of your involvement?"></textarea>
