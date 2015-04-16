@@ -4,22 +4,25 @@
 
 <div id="holder">
     <div id="top">
-        <div class="pull-left"> 
+        <div> 
             <select class="form-control" id="stakeholder" name="stakeholder">
-                <option value="" disabled selected>WHAT IS YOUR STAKEHOLDER GROUP?</option>
+                <option value="" disabled selected>SELECT YOUR GROUP</option>
                 <option value="students">Students</option>
                 <option value="faculty">Faculty</option>
                 <option value="community-members">Community Members</option>
                 <option value="netter-staff">Netter Staff</option>
-                <option value="alumni-patrons">Almni and Patrons</option>
+                <option value="alumni-patrons">Alumni and Patrons</option>
             </select>
         </div>
         <div class="pull-right"></div>
     </div>
     <hr id="main_hr">
     <div id="mid">
-        <img src="/img/face.jpeg" height=100px width=100px />
-        <span class="vert"></span>
+        <form>
+            Please upload a image of yourself for the profile.
+            <input type="file" name="image_file" size="40" enctype="multipart/form-data">
+        </form>
+    
         <div id="intro">
             <input class="form-control" type="text" name="name" placeholder="name">
             <hr class="small_hr">

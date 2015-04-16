@@ -7,7 +7,7 @@
     margin-right: auto;
     margin-top: 15px;
     background-color: white;
-    padding-top: 80px;
+    padding-top: 30px;
     padding-left: 45px;
     padding-right: 45px;
     font-size: .8em;
@@ -17,7 +17,7 @@
     background-color: #005dff;
     height: 3px;
     width: 100%;
-    margin-top: 35px;
+    margin-bottom: 10px;
 }
 
 #main2_hr {
@@ -43,8 +43,14 @@
     height:100px;
 }
 
+#stakeholder {
+    margin-left: auto;
+    margin-right: auto;
+    width: 55%;
+}
+
 #intro {
-    position: absolute;
+    /*position: absolute;*/
     display: inline;
     width: 150px;
     margin-left: 20px;
