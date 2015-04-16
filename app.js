@@ -124,7 +124,7 @@ app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
 app.get('/create-profile', controller.create_profile_get);
 app.post('/create-profile', controller.create_profile_post);
-app.all('*', pass.isAuthenticated, createdProfile);
+app.all('*', pass.isAuthenticated);
 app.get('/profile', controller.profile);
 app.get('/search-results', controller.search_results);
 

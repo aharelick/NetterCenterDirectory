@@ -1,6 +1,6 @@
 #holder {
     color: #4d4d4d;
-    width: 40%;
+    width: 60%;
     border-left: 1px solid #888888;
     border-right: 1px solid #888888;
     margin-left: auto;
@@ -106,5 +106,5 @@ textarea {
 }
 
 .tag-select {
-    width: 320px;
+    width: 420px;
 }
