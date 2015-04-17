@@ -1,7 +1,6 @@
 .act-btn {
     margin-top: 20px;
-    width: 215px; 
-    height: 40px;
+    width: 40%; 
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
 }
@@ -14,6 +13,11 @@
 .create-button {
     background-color: #990304;
     color: white;
+}
+
+#logo {
+    padding-right: 10%;
+    width: 100%;
 }
 
 input {
