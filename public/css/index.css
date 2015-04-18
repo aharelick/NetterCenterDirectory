@@ -1,6 +1,12 @@
+@font-face {
+    font-family: Edmondsans-Regular;
+    src: url(./fonts/Edmondsans-Regular.otf);
+}
+
 .act-btn {
     margin-top: 20px;
     width: 40%; 
+    font-family: Edmondsans-Regular;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
 }
@@ -27,3 +33,4 @@ input {
     -webkit-border-radius: 10px;
     padding-left: 10px;
 }
+
