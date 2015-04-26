@@ -3,6 +3,11 @@
     src: url(/fonts/Edmondsans-Regular.otf);
 }
 
+@font-face {
+    font-family: Edmondsans-Medium;
+    src: url(/fonts/Edmondsans-Medium.otf);
+}
+
 .act-btn {
     margin-top: 20px;
     width: 40%; 
@@ -11,21 +16,34 @@
     -webkit-border-radius: 10px;
 }
 
+.helptext {
+    margin-top: 10px;
+    font-family: Edmondsans-Regular;
+}
+
 .login-button {
 	background-color: #a8a9ad;
 	color: white;
     border: none;
+    width: 30%;
+    height: 10%;
 }
 
 .create-button {
     background-color: #990304;
     color: white;
     border: none;
+    width: 30%;
+    height: 10%;
 }
 
 #logo {
     padding-right: 10%;
     width: 100%;
+}
+
+#newuser {
+
 }
 
 input {
@@ -35,5 +53,6 @@ input {
     -webkit-border-radius: 10px;
     padding-left: 10px;
     border: none;
+    font-family: Edmondsans-Regular;
 }
 

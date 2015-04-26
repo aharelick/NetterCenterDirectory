@@ -5,19 +5,9 @@
     <a href="/"><img id="logo" src="/img/login-NCD.jpg"/></a>
     <br />
     <% include flash %>
-    <button id="login-button" class="act-btn login-button">LOG IN</button>
-    <div id="login-div" style="display: none;">
-      <form id="login-form" method="POST" action="/validate">
-          &nbsp;&nbsp;<input type="text" name="username" placeholder="username" pattern=".{4,}" required title="4 characters minimum"//>
-          <br />
-          &nbsp;&nbsp;<input type="password" name="password" placeholder="password" pattern=".{6,}" required title="6 characters minimum"//>
-          <br />
-          <button type="submit" class="act-btn login-button" style="width:30%; height: 10%">LOG IN</button>
-      </form>
-    </div>
-    <br />
-    <button id="create-button" class="act-btn create-button">CREATE AN ACCOUNT</button>
-    <div id="create-div" style="display: none;">
+    <div class="helptext">New to the NCD? Create an account below.</div>
+    <button id="create-button" class="act-btn create-button" style="display:none">CREATE</button>
+    <div id="create-div">
       <form id="register-form" method="POST" action="/create-user">
         &nbsp;&nbsp;<input type="text" name="username" placeholder="username" pattern=".{4,}" required title="4 characters minimum"//>
         <br />
@@ -28,6 +18,18 @@
         <button type="submit" class="act-btn create-button" style="width:30%; height: 10%">CREATE</button>
       </form>
     </div>
+    <div class="helptext">Already have an account? Please login below.</div>
+     <button id="login-button" class="act-btn login-button">LOG IN</button>
+    <div id="login-div" style="display: none;">
+      <form id="login-form" method="POST" action="/validate">
+          &nbsp;&nbsp;<input type="text" name="username" placeholder="username" pattern=".{4,}" required title="4 characters minimum"//>
+          <br />
+          &nbsp;&nbsp;<input type="password" name="password" placeholder="password" pattern=".{6,}" required title="6 characters minimum"//>
+          <br />
+          <button type="submit" class="act-btn login-button" style="width:30%; height: 10%">LOG IN</button>
+      </form>
+    </div>
+    <br />
   </main>
 </div>
 
