@@ -4,12 +4,12 @@
 
 <div id="holder">
     <div id="top">
-        <div class="pull-left">Stakeholder Group</div>
+        <div class="pull-left"><%= user.stakeholder_group %></div>
         <div class="pull-right">Last Updated: <%= user.last_updated %></div>
     </div>
     <hr id="main_hr">
     <div id="mid">
-        <img src="<%= user.image %>" height=100px width=100px />
+        <img src="<%= user.image %>" width=40% />
         <span class="vert"></span>
         <div id="intro">
             <%= user.name %>

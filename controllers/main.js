@@ -143,7 +143,8 @@ exports.profile = function(req, res) {
               email: req.user.email,
               bio: req.user.bio,
               image: req.user.picture,
-              last_updated: date.format("dddd, MMMM Do YYYY")
+              last_updated: date.format("dddd, MMMM Do YYYY"),
+              stakeholder_group: req.user.category
             };
   res.render('profile.ejs', {
 	title : "Profile",
