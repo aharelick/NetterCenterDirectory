@@ -12,6 +12,17 @@ $(document).ready(function () {
 		});
 	});
 
+	filepicker.setKey("AISv3IWs7SNW1CjG0QFz8z");
+	$("#filepicker-trigger").click(function() {
+		filepicker.pick({
+			mimetypes: ['image/*'],
+		},
+		function(Blob) {
+			console.log(Blob.url)
+    		$("input[name='image']").val(Blob.url)
+    	});
+	});
+
 
 	// helper function to change the text of attributes
 	function changeAtt(att1, att2, att3) {

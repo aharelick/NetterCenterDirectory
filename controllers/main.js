@@ -1,4 +1,5 @@
 var passport = require('passport');
+var moment = require('moment');
 var User = require('../models/User');
 
 
@@ -98,8 +99,10 @@ exports.create_profile_post = function(req, res, next) {
   req.assert('email', 'Your email cannot be blank').isEmail();
   req.assert('bio', 'Your bio cannot be blank').notEmpty();
   req.assert('phone', 'Your phone number is not valid').notEmpty();
+  req.assert('hometown', 'Your phone number is not valid').notEmpty();
   //req.assert('password', 'Password must be at least 6 characters long').len(6);
   req.assert('stakeholder', 'Not a valid role').stakeholder();
+  req.assert('image', 'Not a valid image').isURL();
 
   var errors = req.validationErrors();
   if (errors) {
@@ -109,6 +112,7 @@ exports.create_profile_post = function(req, res, next) {
   }
 
   var stakeholder = stakeHolderParser(req.body.stakeholder);
+  console.log(req.body.image);
 
   User.findOne({username: req.user.username}, function(err, current_user) {
     // not doing picture
@@ -117,6 +121,8 @@ exports.create_profile_post = function(req, res, next) {
     current_user.email = req.body.email;
     current_user.phone = req.body.phone;
     current_user.bio = req.body.bio;
+    current_user.hometown = req.body.hometown;
+    current_user.picture = req.body.image;
     current_user.updated = Date.now();
     current_user.created_profile = true;
     current_user.save(function(err) {
@@ -130,7 +136,15 @@ exports.create_profile_post = function(req, res, next) {
 }
 
 exports.profile = function(req, res) {
-  var user = {name: req.user.name, phone: req.user.phone, email: req.user.email, bio: req.user.bio};
+  var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  var date = moment(req.user.updated);
+  var user = {name: req.user.name,
+              phone: req.user.phone,
+              email: req.user.email,
+              bio: req.user.bio,
+              image: req.user.picture,
+              last_updated: date.format("dddd, MMMM Do YYYY")
+            };
   res.render('profile.ejs', {
 	title : "Profile",
   user: user,
