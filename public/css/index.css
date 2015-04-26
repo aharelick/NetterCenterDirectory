@@ -14,11 +14,13 @@
 .login-button {
 	background-color: #a8a9ad;
 	color: white;
+    border: none;
 }
 
 .create-button {
     background-color: #990304;
     color: white;
+    border: none;
 }
 
 #logo {
@@ -32,5 +34,6 @@ input {
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     padding-left: 10px;
+    border: none;
 }
 
