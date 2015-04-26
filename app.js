@@ -131,9 +131,9 @@ app.get('/index', controller.index);
 app.get('/logout', controller.logout);
 app.post('/validate', controller.validate);
 app.post('/create-user', controller.create_user);
+app.all('*', pass.isAuthenticated, toCreateProfile);
 app.get('/create-profile', toProfile, controller.create_profile_get);
 app.post('/create-profile', toProfile, controller.create_profile_post);
-app.all('*', pass.isAuthenticated, toCreateProfile);
 app.get('/profile', controller.profile);
 app.get('/search-results', controller.search_results);
 
