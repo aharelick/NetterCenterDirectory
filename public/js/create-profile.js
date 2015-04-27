@@ -93,6 +93,6 @@ $(document).ready(function () {
 			    value: JSON.stringify(att3Tags)
 			}).appendTo(form);
 			form.appendTo('body').submit();
-	})
+		});
 	
 });
