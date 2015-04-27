@@ -459,10 +459,12 @@
                 return false;
             }
 
+            tagNum = $(this.container[0].parentElement).attr("tagNum");
+            
             $('<li />')
                 .addClass('Token')
                 .attr('data-value', value)
-                .append('<span>' + text + '</span>')
+                .append('<span tagNum = ' + tagNum + '>' + text + '</span>')
                 .prepend(close_btn)
                 .insertBefore(this.searchToken);
 

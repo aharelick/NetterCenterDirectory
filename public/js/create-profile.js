@@ -52,19 +52,35 @@ $(document).ready(function () {
 	});
 
 
+	function makeTagArray(tagNum) {
+		tags = [];
+		$('span[tagnum="' + tagNum + '"]').each(function(i,el){
+			  tags.push($(el).text());
+		});
+		return tags;
+	}
+
 	/* creates form and submits it to the POST url
 	I did this like this because I didn't know how the the form would deal
 	with the weird format of tags in the select boxes. In the future we should be graying
 	this box out when the user shouldn't be able to submit (all the fields not filled out)
 	and maybe make the whole page a form. */
 	$('#submit').click(function() {
-		var form = $('<form />', {
-			action: '/create-profile',
-			method: 'POST',
-			style: 'display: none;'
-			});
-			$('.data').appendTo(form);
-			form.appendTo('body').submit();
+
+		var att1Tags = makeTagArray(1);
+		var att2Tags = makeTagArray(2);
+		var att3Tags = makeTagArray(3);
+		console.log(att1Tags);
+		console.log(att2Tags);
+		console.log(att3Tags);
+
+		// var form = $('<form />', {
+		// 	action: '/create-profile',
+		// 	method: 'POST',
+		// 	style: 'display: none;'
+		// 	});
+		// 	$('.data').appendTo(form);
+		// 	form.appendTo('body').submit();
 	})
 	
 });
