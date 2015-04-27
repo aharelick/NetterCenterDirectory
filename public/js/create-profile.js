@@ -70,17 +70,29 @@ $(document).ready(function () {
 		var att1Tags = makeTagArray(1);
 		var att2Tags = makeTagArray(2);
 		var att3Tags = makeTagArray(3);
-		console.log(att1Tags);
-		console.log(att2Tags);
-		console.log(att3Tags);
 
-		// var form = $('<form />', {
-		// 	action: '/create-profile',
-		// 	method: 'POST',
-		// 	style: 'display: none;'
-		// 	});
-		// 	$('.data').appendTo(form);
-		// 	form.appendTo('body').submit();
+		var form = $('<form />', {
+			action: '/create-profile',
+			method: 'POST',
+			style: 'display: none;'
+			});
+			$('.data').appendTo(form);
+			$('<input>').attr({
+			    type: 'hidden',
+			    name: 'tags1',
+			    value: JSON.stringify(att1Tags)
+			}).appendTo(form);
+			$('<input>').attr({
+			    type: 'hidden',
+			    name: 'tags2',
+			    value: JSON.stringify(att2Tags)
+			}).appendTo(form);
+			$('<input>').attr({
+			    type: 'hidden',
+			    name: 'tags3',
+			    value: JSON.stringify(att3Tags)
+			}).appendTo(form);
+			form.appendTo('body').submit();
 	})
 	
 });

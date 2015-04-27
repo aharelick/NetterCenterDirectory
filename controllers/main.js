@@ -1,6 +1,9 @@
 var passport = require('passport');
 var moment = require('moment');
+var _ = require('underscore');
+var async = require('async');
 var User = require('../models/User');
+var Tag = require('../models/Tag');
 
 
 exports.index = function(req, res) {
@@ -93,6 +96,22 @@ function stakeHolderParser(input) {
   }
 }
 
+function stakeHolderCategories(input) {
+
+  switch(input) {
+    case "students":
+      return ["Experience", "Program/Group", "Site"];
+    case "faculty":
+      return ["Department", "Courses Taught", "Research Interests"];
+    case "community-members":
+      return ["Work Experience", "Support Interests", "Group/Netter Involvement"];
+    case "netter-staff":
+      return ["Position/Role", "Projects/Specific Involvements", "Site"];
+    case "alumni-patrons":
+      return ["Work Experience", "Support Interests", "Projects/Specific Involvement w/ Netter"];
+  }
+}
+
 exports.create_profile_post = function(req, res, next) {
   // validation checks
   req.assert('name', 'Your name cannot be blank').notEmpty();
@@ -103,35 +122,92 @@ exports.create_profile_post = function(req, res, next) {
   //req.assert('password', 'Password must be at least 6 characters long').len(6);
   req.assert('stakeholder', 'Not a valid role').stakeholder();
   req.assert('image', 'Not a valid image').isURL();
-
   var errors = req.validationErrors();
   if (errors) {
     req.flash('errors', errors);
     console.log("there were flash errrors");
     return res.redirect('/create-profile');
   }
-
+  var tagsObject = [];
+  var allTags = [];
   var stakeholder = stakeHolderParser(req.body.stakeholder);
-  console.log(req.body.image);
-
-  User.findOne({username: req.user.username}, function(err, current_user) {
-    // not doing picture
-    current_user.category = stakeholder;
-    current_user.name = req.body.name;
-    current_user.email = req.body.email;
-    current_user.phone = req.body.phone;
-    current_user.bio = req.body.bio;
-    current_user.hometown = req.body.hometown;
-    current_user.picture = req.body.image;
-    current_user.updated = Date.now();
-    current_user.created_profile = true;
-    current_user.save(function(err) {
-      if (err) {
-        next(err)
-      } else {
-        res.redirect('/profile');
-      }
-    });
+  var categories = stakeHolderCategories(req.body.stakeholder);
+  async.series([
+    function(callback) {
+      // we should probably do validation on the tags
+      tags1 = JSON.parse(req.body.tags1);
+      tags2 = JSON.parse(req.body.tags2);
+      tags3 = JSON.parse(req.body.tags3);
+      tagsObject.push({type: categories[0], tags: tags1});
+      tagsObject.push({type: categories[1], tags: tags2});
+      tagsObject.push({type: categories[2], tags: tags3});
+      allTags = _.union(tags1, tags2, tags3);
+      callback();
+    },
+    function(callback) {
+      User.findOne({username: req.user.username}, function(err, current_user) {
+        current_user.category = stakeholder;
+        current_user.name = req.body.name;
+        current_user.email = req.body.email;
+        current_user.phone = req.body.phone;
+        current_user.bio = req.body.bio;
+        current_user.hometown = req.body.hometown;
+        current_user.picture = req.body.image;
+        current_user.updated = Date.now();
+        current_user.tags = tagsObject;
+        current_user.created_profile = true;
+        current_user.save(function(err) {
+          if (err) {
+            callback(err)
+          } else {
+            callback();
+          }
+        });
+      });
+    },
+    function(callback) {
+      async.each(allTags, function(tag, each_callback) {
+        Tag.findOne({name: tag}, function(err, current_tag) {
+          if (err) {
+            each_callback(err);
+          } else if (current_tag) {
+            current_tag.users.push(req.user._id);
+            current_tag.save(function(err) {
+              if (err) {
+                each_callback(err);
+              } else {
+                each_callback();
+              }
+            });
+          } else {
+            var new_tag = new Tag({
+              name: tag,
+              users: [req.user._id],
+            });
+            new_tag.save(function(err) {
+              if (err) {
+                each_callback(err);
+              } else {
+                each_callback();
+              }
+            });
+          }
+        });
+      }, function(err) {
+          if(err) {
+            callback(err);
+          } else {
+            callback();
+          }
+      });
+    }
+  ],
+  function(err, results) {
+    if (err) {
+      next(err);
+    } else {
+      res.redirect('/profile');
+    }
   });
 }
 
