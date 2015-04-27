@@ -61,6 +61,10 @@
     font-family: Edmondsans-Medium;
 }
 
+#description {
+    font-size: 115%;
+}
+
 .circle .image-wrap {
     -webkit-border-radius: 50em;
     -moz-border-radius: 50em;
@@ -82,10 +86,19 @@
     margin-bottom: 5%;
 }
 
+.tag_labels {
+    font-family: Edmondsans-Medium;
+}
+
 .tag {
-    background-color: #d1d3d4;
+    background-color:  #d4d5d7;
     -webkit-border-radius: 10em;
     -moz-border-radius: 10em;
+    font-size: 80%;
+}
+
+.info-horiz {
+    font-size: 125%;
 }
 
 td {
