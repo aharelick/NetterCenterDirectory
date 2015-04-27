@@ -1,3 +1,14 @@
+@font-face {
+    font-family: Edmondsans-Regular;
+    src: url(/fonts/Edmondsans-Regular.otf);
+}
+
+@font-face {
+    font-family: Edmondsans-Medium;
+    src: url(/fonts/Edmondsans-Medium.otf);
+}
+
+
 #holder {
     color: #4d4d4d;
     width: 60%;
@@ -11,6 +22,8 @@
     padding-right: 45px;
     padding-bottom: 30px;
     font-size: .8em;
+    font-family: Edmondsans-Regular;
+
 }
 
 #main_hr {
@@ -18,6 +31,7 @@
     height: 3px;
     width: 100%;
     margin-top: 35px;
+    border: none;
 }
 
 #main2_hr {

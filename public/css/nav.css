@@ -1,3 +1,8 @@
+@font-face {
+    font-family: Edmondsans-Regular;
+    src: url(/fonts/Edmondsans-Regular.otf);
+}
+
 .navbar {
 	position: absolute;
 	top: 0px;
@@ -6,6 +11,7 @@
 	background-color: #e6e7e9;
 	color: black;
 	box-shadow: 1px 1px 1px #888888;
+    font-family: Edmondsans-Regular;
 }
 
 .navbar img {
@@ -25,15 +31,19 @@
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
     outline: none;
+    width: 200%;
+    border: none;
+    font-family: Edmondsans-Regular;
 }
 
 #mag {
 	position: absolute;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
-    height: 33px;
-    margin-top: -33px;
-    margin-left: 182px;
+    height: 80%;
+    width: 15%;
+    margin-top: -13.5%;
+    margin-left: 115%;
 }
 
 #pro_pic {
