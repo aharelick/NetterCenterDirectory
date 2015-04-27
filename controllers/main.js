@@ -157,11 +157,11 @@ exports.profile = function(req, res) {
 exports.search_results = function(req, res) {
   // put in parameter validation
   // check if sorted
-  var query = req.params.query;
-  var page = req.params.page;
-  if (page == null) {
-    page = 1;
-  }
+  // var query = req.params.query;
+  // var page = req.params.page;
+  // if (page == null) {
+  //   page = 1;
+  // }
   data = [{
     username: "username1",
     category: "category1",
@@ -175,8 +175,10 @@ exports.search_results = function(req, res) {
     picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
     bio: "I'm a bio.2",
   }];
+  var user = {image: req.user.picture}
   res.render('search-results.ejs', {
     title : "Results",
+    user: user,
     css_rels : [ "nav.css", "search-results.css"],
     js_files : [ "search-results.js", "search.js"],
     results: data
