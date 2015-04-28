@@ -5,7 +5,7 @@ var mongoose = require('mongoose');
 var userSchema = new mongoose.Schema({
   username: { type: String, unique: true},
   password: String,
-  category: String,
+  stakeholder: String,
   name: String,
   email: String,
   hometown: String,
@@ -16,7 +16,7 @@ var userSchema = new mongoose.Schema({
   created_profile: { type: Boolean, default: false},
   tags: [
     {
-      type: String,
+      category: String,
       tags: [{ type: String}]
     }
   ]

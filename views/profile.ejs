@@ -17,6 +17,8 @@
             <%= user.email %>
             <hr class="small_hr">
             <%= user.phone %>
+            <hr class="small_hr">
+            <%= user.hometown %>
         </div>
     </div>
     <div id="description">
@@ -25,34 +27,16 @@
     <hr id="main2_hr">
     <div class="info-horiz">
         <table>
+            <% for (var i = 0; i < user.tags.length; i++) { %>
             <tr>
-                <td>Experience</td>
+                <td><%= user.tags[i].category %></td>
                 <td class="tags">
-                    <span class="tag">volunteer</span>
-                    <span class="tag">university of pennsylvania</span>
-                    <span class="tag">students</span>
-                    <span class="tag">athlete</span>
-                    <span class="tag">owls</span>
+                     <% for (var j = 0; j < user.tags[i].tags.length; j++) { %>
+                    <span class="tag"><%= user.tags[i].tags[j] %></span>
+                    <% } %>
                 </td>
             </tr>
-            <tr>
-                <td>Program/Group</td>
-                <td class="tags">
-                    <span class="tag">after-school program</span>
-                    <span class="tag">philly schools</span>
-                    <span class="tag">students</span>
-                    <span class="tag">temple university</span>
-                </td>
-            </tr>
-            <tr>
-                <td>Site</td>
-                <td class="tags">
-                    <span class="tag">netter center directory</span>
-                    <span class="tag">class of 2015</span>
-                    <span class="tag">quakers</span>
-                    <span class="tag">blue mountain school district</span>
-                </td>
-            </tr>
+            <% } %>
         </table>
     </div>
 </div>

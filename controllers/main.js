@@ -41,7 +41,6 @@ exports.validate = function(req, res, next) {
 };
 
 exports.create_user = function(req, res, next) {
-	console.log("in create user");
 	req.assert('username', 'Username must be at least 4 characters long').len(4);
  	req.assert('password', 'Password must be at least 6 characters long').len(6);
  	req.assert('repassword', 'Passwords do not match').equals(req.body.password);
@@ -138,15 +137,15 @@ exports.create_profile_post = function(req, res, next) {
       tags1 = JSON.parse(req.body.tags1);
       tags2 = JSON.parse(req.body.tags2);
       tags3 = JSON.parse(req.body.tags3);
-      tagsObject.push({type: categories[0], tags: tags1});
-      tagsObject.push({type: categories[1], tags: tags2});
-      tagsObject.push({type: categories[2], tags: tags3});
+      tagsObject.push({category: categories[0], tags: tags1});
+      tagsObject.push({category: categories[1], tags: tags2});
+      tagsObject.push({category: categories[2], tags: tags3});
       allTags = _.union(tags1, tags2, tags3);
       callback();
     },
     function(callback) {
       User.findOne({username: req.user.username}, function(err, current_user) {
-        current_user.category = stakeholder;
+        current_user.stakeholder = stakeholder;
         current_user.name = req.body.name;
         current_user.email = req.body.email;
         current_user.phone = req.body.phone;
@@ -211,23 +210,54 @@ exports.create_profile_post = function(req, res, next) {
   });
 }
 
-exports.profile = function(req, res) {
+exports.profile = function(req, res, next) {
+  // TODO compress the two res.redners into one async callback or promise
+  var username = req.params.username;
   var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-  var date = moment(req.user.updated);
-  var user = {name: req.user.name,
+  var date;
+  var user = {};
+  if (username === req.user.username) {
+    date = moment(req.user.updated);
+    user = {
+              name: req.user.name,
               phone: req.user.phone,
               email: req.user.email,
               bio: req.user.bio,
               image: req.user.picture,
+              hometown: req.user.hometown,
+              tags: req.user.tags,
               last_updated: date.format("dddd, MMMM Do YYYY"),
-              stakeholder_group: req.user.category
+              stakeholder_group: req.user.stakeholder
             };
-  res.render('profile.ejs', {
-	title : "Profile",
-  user: user,
-	css_rels : [ "nav.css", "profile.css" ],
-	js_files : [ "search.js"]
-  });
+      res.render('profile.ejs', { title : "Profile",
+                                  user: user,
+                                  css_rels : [ "nav.css", "profile.css" ],
+                                  js_files : [ "search.js"]
+                                });
+  } else {
+    User.findOne({username: username}, function(err, result_user) {
+      if (result_user == null) {
+        return next("That is not a valid username");
+      }
+      date = moment(result_user.updated);
+      user = {
+                name: result_user.name,
+                phone: result_user.phone,
+                email: result_user.email,
+                bio: result_user.bio,
+                image: result_user.picture,
+                hometown: result_user.hometown,
+                tags: result_user.tags,
+                last_updated: date.format("dddd, MMMM Do YYYY"),
+                stakeholder_group: result_user.stakeholder
+              };
+      res.render('profile.ejs', { title : "Profile",
+                                  user: user,
+                                  css_rels : [ "nav.css", "profile.css" ],
+                                  js_files : [ "search.js"]
+                                });
+    });
+  }
 };
 
 exports.search_results = function(req, res) {

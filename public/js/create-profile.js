@@ -18,7 +18,8 @@ $(document).ready(function () {
 			mimetypes: ['image/*'],
 		},
 		function(Blob) {
-			console.log(Blob.url)
+			$("#filepicker-trigger").removeClass("btn-default").addClass("btn-success");
+			$("#filepicker-trigger").html("Change File");
     		$("input[name='image']").val(Blob.url)
     	});
 	});

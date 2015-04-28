@@ -126,6 +126,10 @@ function toProfile(req, res, next) {
     }
 }
 
+function profileRedirect(req, res, next) {
+	res.redirect('/profile/' + req.user.username);
+}
+
 app.get('/', controller.index);
 app.get('/index', controller.index);
 app.get('/logout', controller.logout);
@@ -134,7 +138,8 @@ app.post('/create-user', controller.create_user);
 app.get('/create-profile', pass.isAuthenticated, toProfile, controller.create_profile_get);
 app.post('/create-profile', pass.isAuthenticated, toProfile, controller.create_profile_post);
 app.all('*', pass.isAuthenticated, toCreateProfile);
-app.get('/profile', controller.profile);
+app.get('/profile', profileRedirect);
+app.get('/profile/:username', controller.profile);
 app.get('/search-results', controller.search_results);
 
 
