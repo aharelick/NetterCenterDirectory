@@ -9,7 +9,15 @@ volunteer, philly schools, students, etc…: 9pt, regular…letter spacing is 50
 colored lines are 2px wide
 gray lines are 1px wide*/
 
+@font-face {
+    font-family: Edmondsans-Regular;
+    src: url(/fonts/Edmondsans-Regular.otf);
+}
 
+@font-face {
+    font-family: Edmondsans-Medium;
+    src: url(/fonts/Edmondsans-Medium.otf);
+}
 .container {
     margin: 10px;
     margin-top: 30px;
@@ -39,11 +47,12 @@ gray lines are 1px wide*/
     background-color: #A30000;
     color: white;
     vertical-align: center;
-    font: 11px, Edmondsans, Helvetica, Arial, sans-serif;;
     float:top;
     vertical-align: middle;
     height: 10%;
     text-align: center;
+    font-family: Edmondsans-Regular;
+
 }
 
 
@@ -51,6 +60,7 @@ gray lines are 1px wide*/
     padding-left: 5px;
     background-color: white;
     height: 70%;
+    font-family: Edmondsans-Regular;
 }
 
 #legend-pane {
@@ -65,17 +75,18 @@ gray lines are 1px wide*/
     background-color: #A30000;
     color: white;
     vertical-align: center;
-    font: 11px, Edmondsans, Helvetica, Arial, sans-serif;;
     float:top;
     vertical-align: middle;
     height: 20px;
     text-align: center;
+    font-family: Edmondsans-Regular;
 }
 
 #legend-body {
     padding-left: 5px;
     background-color: white;
     height: 175px;
+    font-family: Edmondsans-Regular;
 }
 
 #results-pane {
@@ -159,7 +170,7 @@ gray lines are 1px wide*/
     display: block;
     float: left;
     font-size: 11px;
-    font: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: Edmondsans-Regular;
     height: 90px;
     width: 400px;
     margin-top: 25px;
