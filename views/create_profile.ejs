@@ -2,10 +2,11 @@
 
 <% include nav %>
 
+<form id="mainForm">
 <div id="holder">
     <div id="top">
         <div> 
-            <select class="form-control data" id="stakeholder" name="stakeholder">
+            <select required class="form-control data" id="stakeholder" name="stakeholder">
                 <option value="" disabled selected>SELECT YOUR GROUP</option>
                 <option value="students">Students</option>
                 <option value="faculty">Faculty</option>
@@ -19,40 +20,40 @@
     <hr id="main_hr">
     <div id="mid">
         <div id="intro">
-            <input class="form-control data" type="text" name="name" placeholder="name">
+            <input required class="form-control data" type="text" name="name" placeholder="name">
             <hr class="small_hr">
-            <input class="form-control data" type="text" name="hometown" placeholder="hometown">
+            <input required class="form-control data" type="text" name="hometown" placeholder="hometown">
             <hr class="small_hr">
-            <input class="form-control data" type="text" name="email" placeholder="email address">
+            <input required class="form-control data" type="text" name="email" placeholder="email address">
             <hr class="small_hr">
-            <input class="form-control data" type="text" name="phone" placeholder="phone number"> 
+            <input required class="form-control data" type="text" name="phone" placeholder="phone number"> 
         </div>
         <div id="imageform">
             Please upload a image of yourself for the profile:
            <button id="filepicker-trigger" class="btn btn-default">Pick File</button>
-           <input type="hidden" class="data" name="image">
+           <input required type="hidden" class="data" name="image">
         </div>
     </div>
-    <div id="description">
+    <div required id="description">
         <textarea class="form-control data" id="description_text" name="bio" rows="7" placeholder="In less than 500 words, please describe your affiliation with The Netter Center. Consider the following: 1) In what capacity have you worked with The Netter Center? and 2) What has been the focus of your involvement?"></textarea>
     </div>
     <hr id="main2_hr">
     <div class="info-horiz" id="tag_instructions">
         <br>Select all tags that are relevant to your involvement with The Netter Center. Tags act as labels for your profile, so that other users can quickly identify key characteristics of your involvement. Other users will be able to search, connect, and collaborate with you based on your tags.</br>
-        <table style="padding-top:100px">
-            <tr>
+        <table class="table input-group" style="padding-top:10px;text-align:center">
+            <tr class = "row">
                 <td class="attr">Attribute 1</td>
                 <td class="tags" id="tag1Input" tagNum = 1>
                     <select class="tag-select" multiple="multiple"></select>
                 </td>
             </tr>
-            <tr>
+            <tr class="row">
                 <td class="attr">Attribute 2</td>
                 <td class="tags" id="tag2Input" tagNum = 2>
                     <select class="tag-select" multiple="multiple"></select>
                 </td>
             </tr>
-            <tr>
+            <tr class="row">
                 <td class="attr">Attribute 3</td>
                 <td class="tags" id="tag3Input" tagNum = 3>
                     <select class="tag-select" multiple="multiple"></select>
@@ -64,5 +65,6 @@
         <a id="submit" class="btn btn-lg btn-primary">Submit</a>
     </div>
 </div>
+</form>
 
 <% include footer %>

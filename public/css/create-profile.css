@@ -101,6 +101,9 @@ td {
     padding: 5px;
     padding-right: 15px;
 }
+td input, .tokensContainer {
+    width: 100px;
+}
 table tr td:last-child,
 table tr th:last-child {
     border-right: 0;
@@ -141,10 +144,6 @@ textarea {
     resize: none;
     font-family: Edmondsans-Regular;
 
-}
-
-.tag-select {
-    width: 420px;
 }
 
 #submit-btn-wrapper {

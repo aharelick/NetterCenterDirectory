@@ -8,7 +8,7 @@ $(document).ready(function () {
 		});
 		$('.tag-select').tokenize({
 			newElements: false,
-			placeholder: "please enter your tag(s) here..."
+			placeholder: "enter tag(s) here..."
 		});
 	});
 
@@ -61,39 +61,48 @@ $(document).ready(function () {
 		return tags;
 	}
 
+	$( "#mainForm" ).validate({
+	  rules: {
+	    fruit: {
+	      required: true
+	    }
+	  }
+	});
+
 	/* creates form and submits it to the POST url
 	I did this like this because I didn't know how the the form would deal
 	with the weird format of tags in the select boxes. In the future we should be graying
 	this box out when the user shouldn't be able to submit (all the fields not filled out)
 	and maybe make the whole page a form. */
 	$('#submit').click(function() {
+		if ($('#mainForm').valid()) {
+			var att1Tags = makeTagArray(1);
+			var att2Tags = makeTagArray(2);
+			var att3Tags = makeTagArray(3);
 
-		var att1Tags = makeTagArray(1);
-		var att2Tags = makeTagArray(2);
-		var att3Tags = makeTagArray(3);
-
-		var form = $('<form />', {
-			action: '/create-profile',
-			method: 'POST',
-			style: 'display: none;'
-			});
-			$('.data').appendTo(form);
-			$('<input>').attr({
-			    type: 'hidden',
-			    name: 'tags1',
-			    value: JSON.stringify(att1Tags)
-			}).appendTo(form);
-			$('<input>').attr({
-			    type: 'hidden',
-			    name: 'tags2',
-			    value: JSON.stringify(att2Tags)
-			}).appendTo(form);
-			$('<input>').attr({
-			    type: 'hidden',
-			    name: 'tags3',
-			    value: JSON.stringify(att3Tags)
-			}).appendTo(form);
-			form.appendTo('body').submit();
-		});
+			var form = $('<form />', {
+				action: '/create-profile',
+				method: 'POST',
+				style: 'display: none;'
+				});
+				$('.data').appendTo(form);
+				$('<input>').attr({
+				    type: 'hidden',
+				    name: 'tags1',
+				    value: JSON.stringify(att1Tags)
+				}).appendTo(form);
+				$('<input>').attr({
+				    type: 'hidden',
+				    name: 'tags2',
+				    value: JSON.stringify(att2Tags)
+				}).appendTo(form);
+				$('<input>').attr({
+				    type: 'hidden',
+				    name: 'tags3',
+				    value: JSON.stringify(att3Tags)
+				}).appendTo(form);
+				form.appendTo('body').submit();
+		}
+	});
 	
 });

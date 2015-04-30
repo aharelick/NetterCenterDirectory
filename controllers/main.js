@@ -76,7 +76,7 @@ exports.create_profile_get = function(req, res) {
   res.render('create_profile.ejs', {
     title : "Create Profile",
     css_rels : ["nav.css", "create-profile.css", "jquery.tokenize.css"],
-    js_files : ["create-profile.js", "search.js", "jquery.tokenize.js"]
+    js_files : ["create-profile.js", "search.js", "jquery.tokenize.js", "validate.js"]
   });
 }
 
