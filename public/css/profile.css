@@ -12,6 +12,7 @@
 #holder {
     color: #4d4d4d;
     width: 60%;
+    height: 120%;
     border-left: 1px solid #888888;
     border-right: 1px solid #888888;
     margin-left: auto;
@@ -44,7 +45,6 @@
 
 #mid {
     padding: 20px;
-    padding-bottom: 25%;
 }
 
 #intro {
@@ -62,6 +62,7 @@
 }
 
 #description {
+    padding-top: 25px;
     font-size: 115%;
 }
 
@@ -72,9 +73,9 @@
 }
 
 .vert {
-    margin-left: 20px;
+    /*margin-left: 20px;
     border-left: medium #4d4d4d solid;
-    height:100px;
+    height:10px;*/
 }
 
 .small_hr {
@@ -99,6 +100,12 @@
 
 .info-horiz {
     font-size: 125%;
+}
+
+#proPic {
+    width: 40%;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 td {
