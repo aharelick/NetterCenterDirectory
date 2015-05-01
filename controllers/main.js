@@ -260,34 +260,38 @@ exports.profile = function(req, res, next) {
   }
 };
 
-exports.search_results = function(req, res) {
+exports.search_results = function(req, res, next) {
   // put in parameter validation
-  // check if sorted
-  // var query = req.params.query;
+  var query = req.query.query;
   // var page = req.params.page;
   // if (page == null) {
   //   page = 1;
   // }
-  data = [{
-    username: "username1",
-    category: "category1",
-    name: "First Name11",
-    picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
-    bio: "I'm a bio.1",
-  }, {
-    username: "username2",
-    category: "category2",
-    name: "First Name2",
-    picture: "http://consettmagazine.com/wp-content/uploads/2014/04/picnic1.jpg",
-    bio: "I'm a bio.2",
-  }];
   var user = {image: req.user.picture}
-  res.render('search-results.ejs', {
-    title : "Results",
-    user: user,
-    css_rels : [ "nav.css", "search-results.css"],
-    js_files : [ "search-results.js", "search.js"],
-    results: data
+  Tag.findOne({name: query}).populate('users', '-password').exec(function(err, result) {
+    if (err) {
+      next(err);
+    } else if (result === null) {
+      res.render('search-results.ejs', {
+        title : "Results",
+        user: user,
+        query: query,
+        count: 0,
+        css_rels : [ "nav.css", "search-results.css"],
+        js_files : [ "search-results.js", "search.js"],
+        results: []
+      });
+    } else {
+      res.render('search-results.ejs', {
+        title : "Results",
+        user: user,
+        query: query,
+        count: result.users.length,
+        css_rels : [ "nav.css", "search-results.css"],
+        js_files : [ "search-results.js", "search.js"],
+        results: result.users
+      });
+    }
   });
 };
 

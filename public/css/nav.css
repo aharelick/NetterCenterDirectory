@@ -42,8 +42,10 @@
     -webkit-border-radius: 10px;
     height: 80%;
     width: 15%;
-    margin-top: -13.5%;
-    margin-left: 115%;
+    margin-top: -15%;
+    margin-left: 110%;
+    background-image: url(/img/search.png);
+    background-size: 100% 100%;
 }
 
 #pro_pic {

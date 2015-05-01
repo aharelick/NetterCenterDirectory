@@ -18,6 +18,11 @@ gray lines are 1px wide*/
     font-family: Edmondsans-Medium;
     src: url(/fonts/Edmondsans-Medium.otf);
 }
+
+a:hover {
+    text-decoration: none;
+}
+
 .container {
     margin: 10px;
     margin-top: 30px;
@@ -140,8 +145,7 @@ gray lines are 1px wide*/
     border: 2px solid #0000FF;
     margin-top: 25px;
     margin-right: 20px;
-    background-image: url('/img/face.jpeg');
-    background-size: 75%;
+    background-size: 100%;
     background-repeat: no-repeat;
     background-position: 50%;
 }
@@ -155,25 +159,24 @@ gray lines are 1px wide*/
 }
 
 
-.name .updated {
-    text-align: left;
-    font-size: 10px;
+.name {
+    font-size: 120%;
+    margin-top: 3%;
 
 }
 
 .updated {
-    color: blue;
-
+    float: right;
+    color: gray;
+    font-size: 80%;
+    padding-right: 3%;
+    padding-top: 4%;
 }
 
 .user-description {
-    display: block;
-    float: left;
-    font-size: 11px;
+    font-size: 90%;
     font-family: Edmondsans-Regular;
-    height: 90px;
-    width: 400px;
-    margin-top: 25px;
+    width: 70%;
     text-align: left;
     display: block;
     overflow: hidden;
@@ -181,6 +184,7 @@ gray lines are 1px wide*/
 }
 
 .tags {
+<<<<<<< HEAD
     display: block;
     float: bottom;
     vertical-align: bottom;
@@ -201,4 +205,7 @@ gray lines are 1px wide*/
     position: absolute;
     left: 10px;
     top: 5px;
+=======
+
+>>>>>>> origin/master
 }

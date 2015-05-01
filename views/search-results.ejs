@@ -38,7 +38,7 @@
 	<div id="results-pane">
 
 		<div id="results-header">
-			____ search results for "____".
+			<%= count %> search results for "<%= query %>"
 		</div>
 
 		<div class="results"></div>
@@ -49,20 +49,18 @@
 	$(document).ready(function() {
   		var results = (<%-JSON.stringify(results)%>);
   		$.each( results, function( key, value ) {
+  			var date = moment(value.updated);
   			var html = '<div class="single-result">' +
 			'<div class="rect"></div>' +
-			'<div class="circle"></div>' +
+			'<a href=/profile/' + value.username + '><div class="circle"></div></a>' +
 			'<div class="profile-body">' +
-				'<span class="name">' + value.username + '</span>' +
-				'<span class="updated"> last updated XX-XX-XXXX </span>' +
-				'<span class="user-description">' + value.bio + '</span>' +
-				'<span class="tags"> nette </span>' +
-			'</div>' +
-		'</div>'
-		$(".circle").css('background-image', 'url(' + value.picture + ')');
-  			$( ".results" ).append( html );
-  			console.log(value);
-			console.log(value.username);
+				'<a href=/profile/' + value.username + '><span class="name">' + value.name + '</span></a></br></br>' +
+				'<div class="user-description">' + value.bio + '</div>' +
+				'<span class="tags"></span>' +
+				'<span class="updated">' + date.format("dddd, MMMM Do YYYY") + '</span>' +
+			'</div>' + '</div>'
+			$( ".results" ).append( html );
+			$(".circle").css('background-image', 'url(' + value.picture + ')');
 		});
 	});
 </script>
