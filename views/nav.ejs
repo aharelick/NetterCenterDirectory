@@ -15,13 +15,13 @@
    
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <form class="navbar-form navbar-search " role="search">
+      <form id="search-form" class="navbar-form navbar-search" role="search" action="/search-results" method="GET">
         <div class="form-group">
-          <input id="search-input" class="tag-search" type="text" style="width: 200%;" class="form-control" placeholder="   search">
+          <input id="search-input" class="form-control tag-search" name="query" type="text" style="width: 200%;" placeholder="   search">
         </div>
-        <input type="image" name="submit" id="mag" src="/img/search.png" />
+        <input type="submit" id="mag" value=""/>
       </form>
-      <img id="pro_pic" src="<%= user.image %>" /> 
+      <a href="/profile"><img id="pro_pic" src="<%= user.image %>" /></a> 
       <ul class="nav navbar-nav navbar-right">
         <li>
             <a href="/logout">| LOG OUT</a>
