@@ -65,7 +65,7 @@ gray lines are 1px wide*/
 
 #legend-pane {
     width: 250px;
-    height:200px;
+    height:150px;
     float:left;
     padding-top:0px;
     border: 1px solid #787876;
@@ -85,7 +85,7 @@ gray lines are 1px wide*/
 #legend-body {
     padding-left: 5px;
     background-color: white;
-    height: 175px;
+    height: 125px;
     font-family: Edmondsans-Regular;
 }
 
@@ -122,14 +122,14 @@ gray lines are 1px wide*/
     margin-right: 25px;
 }
 
-.little-box {
+/*.little-box {
     height: 5%;
     background-color: #0000FF;
     width: 5%;
     float: left;
     margin-top: 25px;
     margin-right: 25px;
-}
+}*/
 
 
 .circle {
@@ -184,4 +184,21 @@ gray lines are 1px wide*/
     display: block;
     float: bottom;
     vertical-align: bottom;
+}
+
+.littlebox {
+    position: relative;
+}
+.littlebox {
+    padding-left: 30px;
+}
+
+.littlebox .color-box {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    background-color: #ccc;
+    position: absolute;
+    left: 10px;
+    top: 5px;
 }
