@@ -185,7 +185,6 @@ a:hover {
 }
 
 .tags {
-<<<<<<< HEAD
     display: block;
     float: bottom;
     vertical-align: bottom;
@@ -206,7 +205,4 @@ a:hover {
     position: absolute;
     left: 10px;
     top: 5px;
-=======
-
->>>>>>> origin/master
 }
