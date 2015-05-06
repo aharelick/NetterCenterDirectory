@@ -104,11 +104,11 @@ function stakeHolderCategories(input) {
     case "faculty":
       return ["Department", "Courses Taught", "Research Interests"];
     case "community-members":
-      return ["Work Experience", "Support Interests", "Group/Netter Involvement"];
+      return ["Professional Skills", "Program Interests", "Group/Netter Involvement"];
     case "netter-staff":
-      return ["Position/Role", "Projects/Specific Involvements", "Site"];
+      return ["Position/Role", "Projects/Specific Involvements", "Professional Skills"];
     case "alumni-friends":
-      return ["Work Experience", "Support Interests", "Projects/Specific Involvement w/ Netter"];
+      return ["Professional Skills", "Areas of Interest", "Projects/Specific Involvement w/ Netter"];
   }
 }
 

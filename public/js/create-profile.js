@@ -42,13 +42,13 @@ $(document).ready(function () {
 			changeAtt("Department", "Courses Taught", "Research Interests");
 		}
 		else if (position == "community-members") {
-			changeAtt("Work Experience", "Support Interests", "Group/Netter Involvement");
+			changeAtt("Professional Skills", "Program Interests", "Group/Netter Involvement");
 		}
 		else if (position == "netter-staff") {
-			changeAtt("Position/Role", "Projects/Specific Involvements", "Site");
+			changeAtt("Position/Role", "Projects/Specific Involvements", "Professional Skills");
 		}
 		else if (position == "alumni-friends") {
-			changeAtt("Work Experience", "Support Interests", "Projects/Specific Involvement w/ Netter");
+			changeAtt("Professional Skills", "Areas of Interest", "Projects/Specific Involvement w/ Netter");
 		}
 	});
 
