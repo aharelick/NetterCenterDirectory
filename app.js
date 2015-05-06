@@ -52,7 +52,7 @@ app.use(expressValidator({
 	customValidators: {
 	    stakeholder: function(param) {
 	        return param === "students" || param === "faculty" || param === "community-members" || 
-	        param === "netter-staff" || param === "alumni-patrons";
+	        param === "netter-staff" || param === "alumni-friends";
 	    }
  	}   
 }));

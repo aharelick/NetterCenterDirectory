@@ -32,7 +32,9 @@
                 <td class="tag-labels"><%= user.tags[i].category %></td>
                 <td class="tags">
                     <% for (var j = 0; j < user.tags[i].tags.length; j++) { %>
-                    <span class="tag"><%= user.tags[i].tags[j] %></span>
+                        <a href="/search-results?query=<%= user.tags[i].tags[j] %>">
+                            <span class="tag"><%= user.tags[i].tags[j] %></span>
+                        </a>
                     <% } %>
                 </td>
             </tr>

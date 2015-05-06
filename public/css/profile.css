@@ -7,7 +7,13 @@
     font-family: Edmondsans-Medium;
     src: url(/fonts/Edmondsans-Medium.otf);
 }
-
+a {
+    color: black;
+}
+a:hover {
+    text-decoration: none;
+    color: grey;
+}
 
 #holder {
     color: #4d4d4d;
@@ -92,10 +98,9 @@
 }
 
 .tag {
-    background-color:  #d4d5d7;
     -webkit-border-radius: 10em;
     -moz-border-radius: 10em;
-    font-size: 80%;
+    font-size: 110%;
 }
 
 .info-horiz {

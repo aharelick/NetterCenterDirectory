@@ -47,7 +47,7 @@ $(document).ready(function () {
 		else if (position == "netter-staff") {
 			changeAtt("Position/Role", "Projects/Specific Involvements", "Site");
 		}
-		else if (position == "alumni-patrons") {
+		else if (position == "alumni-friends") {
 			changeAtt("Work Experience", "Support Interests", "Projects/Specific Involvement w/ Netter");
 		}
 	});

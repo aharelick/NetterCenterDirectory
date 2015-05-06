@@ -1,16 +1,15 @@
 //improved but not perfect
 
 $(document).ready(function() {
-  console.log("here");
     var availableTags = [
       "literacy",
       {label: "elementary education", value: "elem. ed."}, 
       {label: "middle school education", value: "MS ed."},
       {label: "high school education", value: "HS ed."}, 
       {label: "adult education", value: "adult ed."}, 
-      "mentoring",
-      "math",
-      "science",
+      {label: "mentoring", value: "mentoring"},
+      {label: "math", value: "math"},
+      {label: "science", value: "science"},
       {label: "after school program", value: "ASP"}, 
       {label: "one to one tutoring", value: "1 to 1"}, 
       {label: "penn reading initiative", value: "PRI"}, 

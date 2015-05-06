@@ -41,6 +41,7 @@ exports.validate = function(req, res, next) {
 };
 
 exports.create_user = function(req, res, next) {
+  // check to make sure 
 	req.assert('username', 'Username must be at least 4 characters long').len(4);
  	req.assert('password', 'Password must be at least 6 characters long').len(6);
  	req.assert('repassword', 'Passwords do not match').equals(req.body.password);
@@ -90,8 +91,8 @@ function stakeHolderParser(input) {
       return "Community Member";
     case "netter-staff":
       return "Netter Center Staff";
-    case "alumni-patrons":
-      return "Alumni or Patron";
+    case "alumni-friends":
+      return "Alumni & Friends";
   }
 }
 
@@ -106,7 +107,7 @@ function stakeHolderCategories(input) {
       return ["Work Experience", "Support Interests", "Group/Netter Involvement"];
     case "netter-staff":
       return ["Position/Role", "Projects/Specific Involvements", "Site"];
-    case "alumni-patrons":
+    case "alumni-friends":
       return ["Work Experience", "Support Interests", "Projects/Specific Involvement w/ Netter"];
   }
 }
