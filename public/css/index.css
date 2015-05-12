@@ -8,9 +8,21 @@
     src: url(/fonts/Edmondsans-Medium.otf);
 }
 
+input {
+    margin-top: 20px;
+    width: 215px; 
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    padding-left: 10px;
+    border: none;
+    font-family: Edmondsans-Regular;
+}
+
 .act-btn {
     margin-top: 20px;
-    width: 40%; 
+    width: 30%; 
+    color: white;
+    border: none;
     font-family: Edmondsans-Regular;
     -moz-border-radius: 10px;
     -webkit-border-radius: 10px;
@@ -23,35 +35,13 @@
 
 .login-button {
 	background-color: #a8a9ad;
-	color: white;
-    border: none;
-    width: 30%;
-    height: 10%;
 }
 
 .create-button {
     background-color: #990304;
-    color: white;
-    border: none;
-    width: 30%;
-    height: 10%;
 }
 
 #logo {
     width: 100%;
-}
-
-#newuser {
-
-}
-
-input {
-    margin-top: 20px;
-    width: 215px; 
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    padding-left: 10px;
-    border: none;
-    font-family: Edmondsans-Regular;
 }
 

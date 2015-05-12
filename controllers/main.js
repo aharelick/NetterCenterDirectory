@@ -8,9 +8,7 @@ var Tag = require('../models/Tag');
 
 exports.index = function(req, res) {
   res.render('index.ejs', {
-	title : "Netter Center Directory",
-	css_rels : [ "index.css" ],		
-	js_files : [ "index.js" ]
+    title : "Netter Center Directory"
   });
 };
 
