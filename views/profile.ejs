@@ -1,46 +1,56 @@
-<% include header %>
+<!DOCTYPE html>
+<html lang='en'>
 
-<% include nav %>
+<head>
+<% include head %>
+<link rel='stylesheet' href='/css/nav.css'>
+<link rel='stylesheet' href='/css/profile.css'>
+</head>
 
-<div id="holder">
+<body>
+  <% include nav %>
+  <main role="main">
     <div id="top">
-        <div class="pull-left" id="stakeholder"><%= user.stakeholder_group %></div>
-        <div class="pull-right">last updated: <%= user.last_updated %></div>
+      <div class="pull-left" id="stakeholder"><%= user.stakeholder_group %></div>
+      <div class="pull-right">last updated: <%= user.last_updated %></div>
     </div>
-    <hr id="main_hr">
+    <hr id="top-hr">
     <div id="mid">
-        <img id="proPic" src="<%= user.image %>"/>
-        <span class="vert"></span>
-        <div id="intro">
-            <%= user.name %>
-            <hr class="small_hr">
-            <%= user.email %>
-            <hr class="small_hr">
-            <%= user.phone %>
-            <hr class="small_hr">
-            <%= user.hometown %>
-        </div>
+      <img id="pro-pic" src="<%= user.image %>"/>
+      <div id="personal-info">
+        <%= user.name %>
+        <hr class="small-hr">
+        <%= user.email %>
+        <hr class="small-hr">
+        <%= user.phone %>
+        <hr class="small-hr">
+        <%= user.hometown %>
+      </div>
     </div>
-    <div id="description">
-        <%= user.bio %>
+    <div id="bio">
+      <%= user.bio %>
     </div>
-    <hr id="main2_hr">
-    <div class="info-horiz">
-        <table>
-            <% for (var i = 0; i < user.tags.length; i++) { %>
-            <tr>
-                <td class="tag-labels"><%= user.tags[i].category %></td>
-                <td class="tags">
-                    <% for (var j = 0; j < user.tags[i].tags.length; j++) { %>
-                        <a href="/search-results?query=<%= user.tags[i].tags[j] %>">
-                            <span class="tag"><%= user.tags[i].tags[j] %></span>
-                        </a>
-                    <% } %>
-                </td>
-            </tr>
-            <% } %>
-        </table>
+    <hr id="bottom-hr">
+    <div class="category-section">
+      <table>
+        <% for (var i = 0; i < user.tags.length; i++) { %>
+          <tr>
+            <td class="tag-labels"><%= user.tags[i].category %></td>
+            <td class="tags">
+              <% for (var j = 0; j < user.tags[i].tags.length; j++) { %>
+                <a href="/search-results?query=<%= user.tags[i].tags[j] %>">
+                  <span class="tag"><%= user.tags[i].tags[j] %></span>
+                </a>
+              <% } %>
+            </td>
+          </tr>
+        <% } %>
+      </table>
     </div>
-</div>
+  </main>
 
-<% include footer %>
+  <% include footer %>
+  <% include scripts %>
+  <script type='text/javascript' src='/js/search.js'></script>
+</body>
+</html>

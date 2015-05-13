@@ -1,21 +1,13 @@
-@font-face {
-    font-family: Edmondsans-Regular;
-    src: url(/fonts/Edmondsans-Regular.otf);
-}
-
-@font-face {
-    font-family: Edmondsans-Medium;
-    src: url(/fonts/Edmondsans-Medium.otf);
-}
 a {
     color: black;
 }
+
 a:hover {
     text-decoration: none;
     color: grey;
 }
 
-#holder {
+main {
     color: #4d4d4d;
     width: 60%;
     height: 120%;
@@ -30,30 +22,46 @@ a:hover {
     padding-bottom: 30px;
     font-size: .8em;
     font-family: Edmondsans-Regular;
-
 }
 
-#main_hr {
+td {
+    padding: 5px;
+}
+
+table tr td:last-child,
+table tr th:last-child {
+    border-right: 0;
+}
+
+hr {
+    width: 100%;
+    border: none;
+}
+
+#top-hr {
     background-color: #005dff;
     height: 3px;
-    width: 100%;
     margin-top: 35px;
-    border: none;
 }
 
-#main2_hr {
+#bottom-hr {
     background-color: #d4d5d7;
     height: 3px;
-    width: 100%;
     margin-top: 15px;
-    border: none;
+}
+
+.small-hr {
+    background-color: #bebfc1;
+    height: 2px;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 #mid {
     padding: 20px;
 }
 
-#intro {
+#personal-info {
     position: absolute;
     display: inline;
     width: 150px;
@@ -67,7 +75,7 @@ a:hover {
     font-family: Edmondsans-Medium;
 }
 
-#description {
+#bio {
     padding-top: 25px;
     font-size: 115%;
 }
@@ -76,21 +84,6 @@ a:hover {
     -webkit-border-radius: 50em;
     -moz-border-radius: 50em;
     border-radius: 50em;
-}
-
-.vert {
-    /*margin-left: 20px;
-    border-left: medium #4d4d4d solid;
-    height:10px;*/
-}
-
-.small_hr {
-    background-color: #bebfc1;
-    height: 2px;
-    width: 100%;
-    margin-top: 5%;
-    border: none;
-    margin-bottom: 5%;
 }
 
 .tag-labels {
@@ -103,21 +96,12 @@ a:hover {
     font-size: 110%;
 }
 
-.info-horiz {
+.category-section {
     font-size: 125%;
 }
 
-#proPic {
+#pro-pic {
     width: 40%;
     max-width: 300px;
     max-height: 300px;
-}
-
-td {
-    /*border-right: 3px solid black;*/
-    padding: 5px;
-}
-table tr td:last-child,
-table tr th:last-child {
-    border-right: 0;
 }

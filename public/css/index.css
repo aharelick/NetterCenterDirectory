@@ -1,13 +1,3 @@
-@font-face {
-    font-family: Edmondsans-Regular;
-    src: url(/fonts/Edmondsans-Regular.otf);
-}
-
-@font-face {
-    font-family: Edmondsans-Medium;
-    src: url(/fonts/Edmondsans-Medium.otf);
-}
-
 input {
     margin-top: 20px;
     width: 215px; 

@@ -228,11 +228,7 @@ exports.profile = function(req, res, next) {
               last_updated: date.format("dddd, MMMM Do YYYY"),
               stakeholder_group: req.user.stakeholder
             };
-      res.render('profile.ejs', { title : "Profile",
-                                  user: user,
-                                  css_rels : [ "nav.css", "profile.css" ],
-                                  js_files : [ "search.js"]
-                                });
+      res.render('profile.ejs', { title : "Profile", user: user});
   } else {
     User.findOne({username: username}, function(err, result_user) {
       if (result_user == null) {
@@ -250,11 +246,7 @@ exports.profile = function(req, res, next) {
                 last_updated: date.format("dddd, MMMM Do YYYY"),
                 stakeholder_group: result_user.stakeholder
               };
-      res.render('profile.ejs', { title : "Profile",
-                                  user: user,
-                                  css_rels : [ "nav.css", "profile.css" ],
-                                  js_files : [ "search.js"]
-                                });
+      res.render('profile.ejs', { title : "Profile", user: user});
     });
   }
 };

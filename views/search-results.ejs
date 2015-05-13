@@ -1,70 +1,61 @@
-<% include header %>
-<% include nav %>
+<!DOCTYPE html>
+<html lang='en'>
 
-<main role="main">
-	<div id="left">
-		<div id="filter-pane">
+<head>
+<% include head %>
+<link rel='stylesheet' href='/css/nav.css'>
+<link rel='stylesheet' href='/css/search-results.css'>
+</head>
 
-			<div id="filter-title">
-				FILTER SEARCH RESULTS BY:
-			</div>
+<body>
+  <% include nav %>
+  <main role="main">
+    <div id="left">
+      <div id="filter-pane">
+        <div id="filter-title">
+          FILTER SEARCH RESULTS BY:
+        </div>
+        <div id="filter-options" style="text-align:left;">
+          <form>
+            <input type="radio" name="filter" value="alumni">  alumni & friends<br>
+            <input type="radio" name="filter" value="netter staff">  netter staff<br>
+            <input type="radio" name="filter" value="faculty">  faculty<br>
+            <input type="radio" name="filter" value="students">  students<br>
+            <input type="radio" name="filter" value="community">  community members<br>
+            <input type="radio" name="filter" value="most-recent">  most recently updated<br>
+            <input type="radio" name="filter" value="least-recent">  least recently updated<br>
+          </form>
+        </div>
+      </div>
+      <div id="legend-pane">
+        <div id="legend-title">
+          LEGEND:
+        </div>
+        <div id="legend-body" style="text-align:left;">
+          <div class="littlebox"> <div class="color-box" style="background-color: #ff9f3f;"></div> alumni & friends</div>
+          <div class="littlebox"> <div class="color-box" style="background-color: #731ff4;"></div>  netter staff</div>
+          <div class="littlebox"> <div class="color-box" style="background-color: #ff0017;"></div>  faculty</div>
+          <div class="littlebox"> <div class="color-box" style="background-color: #0066f1;"></div>  students</div>
+          <div class="littlebox"> <div class="color-box" style="background-color: #00a148;"></div>  community members</div>
+        </div>
+      </div>
+    </div>
+    <div id="results-pane">
+      <div id="results-header">
+        <%= count %> search results for "<%= query %>"
+      </div>
+      <div class="results"></div>
+    </div>
+  </main>
 
-			<div id="filter-options" style="text-align:left;">
-				<form>
-				<input type="radio" name="filter" value="alumni">  alumni & friends<br>
-				<input type="radio" name="filter" value="netter staff">  netter staff<br>
-				<input type="radio" name="filter" value="faculty">  faculty<br>
-				<input type="radio" name="filter" value="students">  students<br>
-				<input type="radio" name="filter" value="community">  community members<br>
-				<input type="radio" name="filter" value="most-recent">  most recently updated<br>
-				<input type="radio" name="filter" value="least-recent">  least recently updated<br>
-				</form>
-			</div>
-		</div>
-
-		<div id="legend-pane">
-			<div id="legend-title">
-				LEGEND:
-			</div>
-			<div id="legend-body" style="text-align:left;">
-				<div class="littlebox"> <div class="color-box" style="background-color: #ff9f3f;"></div> alumni & friends</div>
-				<div class="littlebox"> <div class="color-box" style="background-color: #731ff4;"></div>  netter staff</div>
-				<div class="littlebox"> <div class="color-box" style="background-color: #ff0017;"></div>  faculty</div>
-				<div class="littlebox"> <div class="color-box" style="background-color: #0066f1;"></div>  students</div>
-				<div class="littlebox"> <div class="color-box" style="background-color: #00a148;"></div>  community members</div>
-			</div>
-		</div>
-	</div>
-	<div id="results-pane">
-
-		<div id="results-header">
-			<%= count %> search results for "<%= query %>"
-		</div>
-
-		<div class="results"></div>
-
-	</div>
-</main>
-<script>
-	$(document).ready(function() {
-  		var results = (<%-JSON.stringify(results)%>);
-  		$.each( results, function( key, value ) {
-  			var date = moment(value.updated);
-  			var html = '<div class="single-result">' +
-			'<div class="rect"></div>' +
-			'<a href=/profile/' + value.username + '>' +
-				'<div class="circle" style="background-image: url(' + value.picture + ');"></div>' +
-			'</a>' +
-			'<div class="profile-body">' +
-				'<a href=/profile/' + value.username + '><span class="name">' + value.name + '</span></a></br></br>' +
-				'<div class="user-description">' + value.bio + '</div>' +
-				'<span class="tags"></span>' +
-				'<span class="updated">' + date.format("dddd, MMMM Do YYYY") + '</span>' +
-			'</div>' + '</div>'
-			$( ".results" ).append( html );
-		});
-	});
-</script>
-
-<% include footer %>
+  <% include footer %>
+  <% include scripts %>
+  <script>
+    // need to set it as variable so we can access it in search-results.js
+    var results = (<%-JSON.stringify(results)%>);
+  </script>
+  <script type='text/javascript' src='/js/search-results.js'></script>
+  <script type='text/javascript' src='/js/search.js'></script>
+</body>
+</html>
 

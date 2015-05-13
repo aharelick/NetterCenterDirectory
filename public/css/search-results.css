@@ -1,29 +1,18 @@
-/*SEARCH RESULTS PAGE—
-filter search results by:  Edmondsans 11pt, medium…letter spacing is 70
-alumni & patrons, netter staff, faculty, etc…: 10pt, regular…letter spacing is 50
-9,999 search results…: 10pt, regular…letter spacing is 20
-name last name, last updated…: 10pt, regular…letter spacing is 70
-bio…: 12pt, regular…letter spacing is 50
-volunteer, philly schools, students, etc…: 9pt, regular…letter spacing is 50
-
-colored lines are 2px wide
-gray lines are 1px wide*/
-
-@font-face {
-    font-family: Edmondsans-Regular;
-    src: url(/fonts/Edmondsans-Regular.otf);
-}
-
-@font-face {
-    font-family: Edmondsans-Medium;
-    src: url(/fonts/Edmondsans-Medium.otf);
-}
-
 a:hover {
     text-decoration: none;
 }
 
-.container {
+a {
+    text-decoration: none;
+    color: #EA6045;
+}
+
+a:hover {
+    color: #2F3440;
+}
+
+
+main {
     margin: 10px;
     margin-top: 30px;
     width: 100%;
@@ -38,7 +27,6 @@ a:hover {
     margin-left: 20px;
     margin-right: 60px;
     font: 11px;
-
 }
 
 #filter-pane {
@@ -58,9 +46,7 @@ a:hover {
     height: 10%;
     text-align: center;
     font-family: Edmondsans-Regular;
-
 }
-
 
 #filter-options {
     padding-left: 5px;
@@ -103,15 +89,12 @@ a:hover {
     padding-top:0px;
 }
 
-
 #results-header {
     background-color: white;
     height: 40px;
     text-align: center;
 }
 
-
-/*STYLE FOR EACH RESULT - SHOULD ALL BE CLASSES*/
 .single-result {
     background-color: white;
     height: 150px;
@@ -127,16 +110,6 @@ a:hover {
     margin-top: 25px;
     margin-right: 25px;
 }
-
-/*.little-box {
-    height: 5%;
-    background-color: #0000FF;
-    width: 5%;
-    float: left;
-    margin-top: 25px;
-    margin-right: 25px;
-}*/
-
 
 .circle {
     float:left;
@@ -155,15 +128,9 @@ a:hover {
     margin: 1px;
 }
 
-.profile-body {
-
-}
-
-
 .name {
     font-size: 120%;
     margin-top: 3%;
-
 }
 
 .updated {
