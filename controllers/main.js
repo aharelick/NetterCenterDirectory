@@ -13,8 +13,8 @@ exports.index = function(req, res) {
 };
 
 exports.validate = function(req, res, next) {
-	// server side validation, maybe make this more specific
-	req.assert('username', 'Your username is not a valid').len(4);
+  // server side validation, maybe make this more specific
+  req.assert('username', 'Your username is not a valid').len(4);
   req.assert('password', 'Your password is invalid').len(6);
 
   var errors = req.validationErrors();
@@ -39,17 +39,17 @@ exports.validate = function(req, res, next) {
 };
 
 exports.create_user = function(req, res, next) {
-  // check to make sure 
-	req.assert('username', 'Username must be at least 4 characters long').len(4);
- 	req.assert('password', 'Password must be at least 6 characters long').len(6);
- 	req.assert('repassword', 'Passwords do not match').equals(req.body.password);
+  // check to make sure
+  req.asert('username', 'Username must be at least 4 characters long').len(4);
+  req.assert('password', 'Password must be at least 6 characters long').len(6);
+  req.assert('repassword', 'Passwords do not match').equals(req.body.password);
 
   var errors = req.validationErrors();
 
-	if (errors) {
-		req.flash('errors', errors);
-		return res.redirect('/');
-	}
+  if (errors) {
+    req.flash('errors', errors);
+    return res.redirect('/');
+  }
 
   var user = new User({
     username: req.body.username,
@@ -82,31 +82,30 @@ exports.create_profile_get = function(req, res) {
 function stakeHolderParser(input) {
   switch(input) {
     case "students":
-      return "Student";
+    return "Student";
     case "faculty":
-      return "Faculty";
+    return "Faculty";
     case "community-members":
-      return "Community Member";
+    return "Community Member";
     case "netter-staff":
-      return "Netter Center Staff";
+    return "Netter Center Staff";
     case "alumni-friends":
-      return "Alumni & Friends";
+    return "Alumni & Friends";
   }
 }
 
 function stakeHolderCategories(input) {
-
   switch(input) {
     case "students":
-      return ["Experience", "Program/Group", "Site"];
+    return ["Experience", "Program/Group", "Site"];
     case "faculty":
-      return ["Department", "Courses Taught", "Research Interests"];
+    return ["Department", "Courses Taught", "Research Interests"];
     case "community-members":
-      return ["Professional Skills", "Program Interests", "Group/Netter Involvement"];
+    return ["Professional Skills", "Program Interests", "Group/Netter Involvement"];
     case "netter-staff":
-      return ["Position/Role", "Projects/Specific Involvements", "Professional Skills"];
+    return ["Position/Role", "Projects/Specific Involvements", "Professional Skills"];
     case "alumni-friends":
-      return ["Professional Skills", "Areas of Interest", "Projects/Specific Involvement w/ Netter"];
+    return ["Professional Skills", "Areas of Interest", "Projects/Specific Involvement w/ Netter"];
   }
 }
 
@@ -192,11 +191,11 @@ exports.create_profile_post = function(req, res, next) {
           }
         });
       }, function(err) {
-          if(err) {
-            callback(err);
-          } else {
-            callback();
-          }
+        if(err) {
+          callback(err);
+        } else {
+          callback();
+        }
       });
     }
   ],
@@ -218,17 +217,17 @@ exports.profile = function(req, res, next) {
   if (username === req.user.username) {
     date = moment(req.user.updated);
     user = {
-              name: req.user.name,
-              phone: req.user.phone,
-              email: req.user.email,
-              bio: req.user.bio,
-              image: req.user.picture,
-              hometown: req.user.hometown,
-              tags: req.user.tags,
-              last_updated: date.format("dddd, MMMM Do YYYY"),
-              stakeholder_group: req.user.stakeholder
-            };
-      res.render('profile.ejs', { title : "Profile", user: user});
+      name: req.user.name,
+      phone: req.user.phone,
+      email: req.user.email,
+      bio: req.user.bio,
+      image: req.user.picture,
+      hometown: req.user.hometown,
+      tags: req.user.tags,
+      last_updated: date.format("dddd, MMMM Do YYYY"),
+      stakeholder_group: req.user.stakeholder
+    };
+    res.render('profile.ejs', { title : "Profile", user: user});
   } else {
     User.findOne({username: username}, function(err, result_user) {
       if (result_user == null) {
@@ -236,16 +235,16 @@ exports.profile = function(req, res, next) {
       }
       date = moment(result_user.updated);
       user = {
-                name: result_user.name,
-                phone: result_user.phone,
-                email: result_user.email,
-                bio: result_user.bio,
-                image: result_user.picture,
-                hometown: result_user.hometown,
-                tags: result_user.tags,
-                last_updated: date.format("dddd, MMMM Do YYYY"),
-                stakeholder_group: result_user.stakeholder
-              };
+        name: result_user.name,
+        phone: result_user.phone,
+        email: result_user.email,
+        bio: result_user.bio,
+        image: result_user.picture,
+        hometown: result_user.hometown,
+        tags: result_user.tags,
+        last_updated: date.format("dddd, MMMM Do YYYY"),
+        stakeholder_group: result_user.stakeholder
+      };
       res.render('profile.ejs', { title : "Profile", user: user});
     });
   }
@@ -268,8 +267,6 @@ exports.search_results = function(req, res, next) {
         user: user,
         query: query,
         count: 0,
-        css_rels : [ "nav.css", "search-results.css"],
-        js_files : [ "search-results.js", "search.js"],
         results: []
       });
     } else {
@@ -278,8 +275,6 @@ exports.search_results = function(req, res, next) {
         user: user,
         query: query,
         count: result.users.length,
-        css_rels : [ "nav.css", "search-results.css"],
-        js_files : [ "search-results.js", "search.js"],
         results: result.users
       });
     }

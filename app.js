@@ -49,12 +49,12 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(expressValidator({
-	customValidators: {
-	    stakeholder: function(param) {
-	        return param === "students" || param === "faculty" || param === "community-members" || 
-	        param === "netter-staff" || param === "alumni-friends";
-	    }
- 	}   
+  customValidators: {
+    stakeholder: function(param) {
+      return param === "students" || param === "faculty" || param === "community-members" || 
+        param === "netter-staff" || param === "alumni-friends";
+    }
+  }   
 }));
 app.use(methodOverride());
 app.use(cookieParser());
@@ -63,10 +63,11 @@ app.use(session({
   saveUninitialized: false,
   secret: process.env.SESSION_SECRET || 'temp',
   store: new MongoStore({ 
-  	url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', 
-  	touchAfter: 24 * 3600,
-  	ttl: 7 * 24 * 3600,
-  	autoReconnect: true })
+    url: process.env.MONGOLAB_URI || 'mongodb://localhost:27017/NetterCenterDirectory', 
+    touchAfter: 24 * 3600,
+    ttl: 7 * 24 * 3600,
+    autoReconnect: true 
+  })
 }));
 app.use(passport.initialize());
 app.use(passport.session());
@@ -80,23 +81,23 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // There's probably a better way to do this twice
 function toCreateProfile(req, res, next) {  
-    if (req.user.created_profile) {
-        next();
-    } else {
-        res.redirect('/create-profile');
-    }
+  if (req.user.created_profile) {
+    next();
+  } else {
+    res.redirect('/create-profile');
+  }
 };
 
 function toProfile(req, res, next) {
-	if (!req.user.created_profile) {
-        next();
-    } else {
-        res.redirect('/profile');
-    }
+  if (!req.user.created_profile) {
+    next();
+  } else {
+    res.redirect('/profile');
+  }
 }
 
 function profileRedirect(req, res, next) {
-	res.redirect('/profile/' + req.user.username);
+  res.redirect('/profile/' + req.user.username);
 }
 
 app.get('/', controller.index);
