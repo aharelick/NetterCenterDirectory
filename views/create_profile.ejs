@@ -1,70 +1,72 @@
-<% include header %>
+<!DOCTYPE html>
+<html lang='en'>
 
-<% include nav %>
+<head>
+<% include head %>
+<link rel='stylesheet' href='/css/jquery.tokenize.css'>
+<link rel='stylesheet' href='/css/nav.css'>
+<link rel='stylesheet' href='/css/create-profile.css'>
+</head>
 
-<form id="mainForm">
-<div id="holder">
-    <div id="top">
-        <div> 
-            <select required class="form-control data" id="stakeholder" name="stakeholder">
-                <option value="" disabled selected>SELECT YOUR GROUP</option>
-                <option value="students">Students</option>
-                <option value="faculty">Faculty</option>
-                <option value="community-members">Community Members</option>
-                <option value="netter-staff">Netter Staff</option>
-                <option value="alumni-friends">Alumni & Friends</option>
-            </select>
-        </div>
-        <div class="pull-right"></div>
-    </div>
-    <hr id="main_hr">
-    <div id="mid">
-        <div id="intro">
-            <input required class="form-control data" type="text" name="name" placeholder="name">
-            <hr class="small_hr">
-            <input required class="form-control data" type="text" name="hometown" placeholder="hometown">
-            <hr class="small_hr">
-            <input required class="form-control data" type="text" name="email" placeholder="email address">
-            <hr class="small_hr">
-            <input required class="form-control data" type="text" name="phone" placeholder="phone number"> 
-        </div>
-        <div id="imageform">
-            Please upload a image of yourself for the profile:
-           <button id="filepicker-trigger" type="button" class="btn btn-default">Pick File</button>
-           <input required type="hidden" class="data" name="image">
-        </div>
-    </div>
-    <div required id="description">
-        <textarea class="form-control data" id="description_text" name="bio" rows="7" placeholder="In less than 500 words, please describe your affiliation with The Netter Center. Consider the following: 1) In what capacity have you worked with The Netter Center? and 2) What has been the focus of your involvement?"></textarea>
-    </div>
-    <hr id="main2_hr">
-    <div class="info-horiz" id="tag_instructions">
-        <br>Select all tags that are relevant to your involvement with The Netter Center. Tags act as labels for your profile, so that other users can quickly identify key characteristics of your involvement. Other users will be able to search, connect, and collaborate with you based on your tags.</br>
+<body>
+  <% include nav %>
+  <main role="main">
+    <form action="/create-profile" method="POST">
+      <select class="form-control" id="stakeholder" name="stakeholder" required>
+        <option value="" disabled selected>SELECT YOUR GROUP</option>
+        <option value="students">Students</option>
+        <option value="faculty">Faculty</option>
+        <option value="community-members">Community Members</option>
+        <option value="netter-staff">Netter Staff</option>
+        <option value="alumni-friends">Alumni & Friends</option>
+      </select>
+      <hr id="group-hr">
+      <div id="personal-info">
+        <input class="form-control" type="text" name="name" placeholder="name" required>
+        <hr class="personal-hr">
+        <input class="form-control" type="text" name="hometown" placeholder="hometown" required>
+        <hr class="personal-hr">
+        <input class="form-control" type="email" name="email" placeholder="email address" required>
+        <hr class="personal-hr">
+        <input class="form-control" type="text" name="phone" placeholder="phone number" required> 
+      </div>
+      <div id="description">
+        <textarea class="form-control data" id="description-text" name="bio" rows="7" placeholder="In less than 500 words, please describe your affiliation with The Netter Center. Consider the following: 1) In what capacity have you worked with The Netter Center? and 2) What has been the focus of your involvement?" required></textarea>
+      </div>
+      <hr id="description-hr">
+      <div>
+        <p>Select all tags that are relevant to your involvement with The Netter Center. Tags act as labels for your profile, so that other users can quickly identify key characteristics of your involvement. Other users will be able to search, connect, and collaborate with you based on your tags.</p>
         <table class="table input-group" style="padding-top:10px;text-align:center">
-            <tr class = "row">
-                <td class="attr">Attribute 1</td>
-                <td class="tags" id="tag1Input" tagNum = 1>
-                    <select class="tag-select" multiple="multiple"></select>
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="attr">Attribute 2</td>
-                <td class="tags" id="tag2Input" tagNum = 2>
-                    <select class="tag-select" multiple="multiple"></select>
-                </td>
-            </tr>
-            <tr class="row">
-                <td class="attr">Attribute 3</td>
-                <td class="tags" id="tag3Input" tagNum = 3>
-                    <select class="tag-select" multiple="multiple"></select>
-                </td>
-            </tr>
+          <tr class="row">
+            <td class="attr">Attribute 1</td>
+            <td class="tags" id="tag1Input" tagNum=1>
+              <select class="tag-select" multiple="multiple"></select>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="attr">Attribute 2</td>
+            <td class="tags" id="tag2Input" tagNum=2>
+              <select class="tag-select" multiple="multiple"></select>
+            </td>
+          </tr>
+          <tr class="row">
+            <td class="attr">Attribute 3</td>
+            <td class="tags" id="tag3Input" tagNum=3>
+              <select class="tag-select" multiple="multiple"></select>
+            </td>
+          </tr>
         </table>
-    </div>
-    <div id="submit-btn-wrapper">  
-        <a id="submit" class="btn btn-lg btn-primary">Submit</a>
-    </div>
-</div>
-</form>
+      </div>
+      <div id="submit-btn-wrapper">  
+        <button id="submit" class="btn btn-lg btn-primary">Submit</button>
+      </div>
+    </form>
+  </main>
 
-<% include footer %>
+  <% include footer %>
+  <% include scripts %>
+  <script type='text/javascript' src='/js/validate.js'></script>
+  <script type='text/javascript' src='/js/jquery.tokenize.js'></script>
+  <script type='text/javascript' src='/js/create-profile.js'></script>
+</body>
+</html>

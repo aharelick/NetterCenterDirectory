@@ -40,7 +40,7 @@ exports.validate = function(req, res, next) {
 
 exports.create_user = function(req, res, next) {
   // check to make sure
-  req.asert('username', 'Username must be at least 4 characters long').len(4);
+  req.assert('username', 'Username must be at least 4 characters long').len(4);
   req.assert('password', 'Password must be at least 6 characters long').len(6);
   req.assert('repassword', 'Passwords do not match').equals(req.body.password);
 
@@ -73,9 +73,7 @@ exports.create_user = function(req, res, next) {
 
 exports.create_profile_get = function(req, res) {
   res.render('create_profile.ejs', {
-    title : "Create Profile",
-    css_rels : ["nav.css", "create-profile.css", "jquery.tokenize.css"],
-    js_files : ["create-profile.js", "search.js", "jquery.tokenize.js", "validate.js"]
+    title : "Create Profile"
   });
 }
 
@@ -118,7 +116,7 @@ exports.create_profile_post = function(req, res, next) {
   req.assert('hometown', 'Your phone number is not valid').notEmpty();
   //req.assert('password', 'Password must be at least 6 characters long').len(6);
   req.assert('stakeholder', 'Not a valid role').stakeholder();
-  req.assert('image', 'Not a valid image').isURL();
+  //req.assert('image', 'Not a valid image').isURL();
   var errors = req.validationErrors();
   if (errors) {
     req.flash('errors', errors);
@@ -131,15 +129,16 @@ exports.create_profile_post = function(req, res, next) {
   var categories = stakeHolderCategories(req.body.stakeholder);
   async.series([
     function(callback) {
-      // we should probably do validation on the tags
-      tags1 = JSON.parse(req.body.tags1);
-      tags2 = JSON.parse(req.body.tags2);
-      tags3 = JSON.parse(req.body.tags3);
-      tagsObject.push({category: categories[0], tags: tags1});
-      tagsObject.push({category: categories[1], tags: tags2});
-      tagsObject.push({category: categories[2], tags: tags3});
-      allTags = _.union(tags1, tags2, tags3);
       callback();
+      // we should probably do validation on the tags
+      // tags1 = JSON.parse(req.body.tags1);
+      // tags2 = JSON.parse(req.body.tags2);
+      // tags3 = JSON.parse(req.body.tags3);
+      // tagsObject.push({category: categories[0], tags: tags1});
+      // tagsObject.push({category: categories[1], tags: tags2});
+      // tagsObject.push({category: categories[2], tags: tags3});
+      // allTags = _.union(tags1, tags2, tags3);
+      // callback();
     },
     function(callback) {
       User.findOne({username: req.user.username}, function(err, current_user) {
@@ -163,40 +162,41 @@ exports.create_profile_post = function(req, res, next) {
       });
     },
     function(callback) {
-      async.each(allTags, function(tag, each_callback) {
-        Tag.findOne({name: tag}, function(err, current_tag) {
-          if (err) {
-            each_callback(err);
-          } else if (current_tag) {
-            current_tag.users.push(req.user._id);
-            current_tag.save(function(err) {
-              if (err) {
-                each_callback(err);
-              } else {
-                each_callback();
-              }
-            });
-          } else {
-            var new_tag = new Tag({
-              name: tag,
-              users: [req.user._id],
-            });
-            new_tag.save(function(err) {
-              if (err) {
-                each_callback(err);
-              } else {
-                each_callback();
-              }
-            });
-          }
-        });
-      }, function(err) {
-        if(err) {
-          callback(err);
-        } else {
-          callback();
-        }
-      });
+      callback();
+      // async.each(allTags, function(tag, each_callback) {
+      //   Tag.findOne({name: tag}, function(err, current_tag) {
+      //     if (err) {
+      //       each_callback(err);
+      //     } else if (current_tag) {
+      //       current_tag.users.push(req.user._id);
+      //       current_tag.save(function(err) {
+      //         if (err) {
+      //           each_callback(err);
+      //         } else {
+      //           each_callback();
+      //         }
+      //       });
+      //     } else {
+      //       var new_tag = new Tag({
+      //         name: tag,
+      //         users: [req.user._id],
+      //       });
+      //       new_tag.save(function(err) {
+      //         if (err) {
+      //           each_callback(err);
+      //         } else {
+      //           each_callback();
+      //         }
+      //       });
+      //     }
+      //   });
+      // }, function(err) {
+      //   if(err) {
+      //     callback(err);
+      //   } else {
+      //     callback();
+      //   }
+      // });
     }
   ],
   function(err, results) {

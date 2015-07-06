@@ -8,86 +8,73 @@
     src: url(/fonts/Edmondsans-Medium.otf);
 }
 
-
-#holder {
+main {
     color: #4d4d4d;
     width: 60%;
+    height: 100%;
     border-left: 1px solid #888888;
     border-right: 1px solid #888888;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 15px;
     background-color: white;
-    padding-top: 30px;
+    padding-top: 80px;
     padding-left: 45px;
     padding-right: 45px;
     padding-bottom: 30px;
     font-size: .8em;
+    font-family: Edmondsans-Regular;
 }
 
-#main_hr {
+#stakeholder {
+    margin: auto;
+    width: 32%;
+}
+
+#group-hr {
     background-color: #bebfc1;
-    /*background-color: #005dff;*/
     height: 3px;
     width: 100%;
     margin-bottom: 10px;
 }
 
-#main2_hr {
-    background-color: #d4d5d7;
-    height: 3px;
+.personal-hr {
+    background-color: #bebfc1;
+    height: 2px;
     width: 100%;
-    margin-top: 15px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
-
-#mid {
+#personal-info {
     padding-left: 15%;
     padding-right: 15%;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-.circle .image-wrap {
-    -webkit-border-radius: 50em;
-    -moz-border-radius: 50em;
-    border-radius: 50em;
+#personal-info input {
+    height: 14px;
+    font-size: 12px;
+    line-height: 14px;
+    border: 0;
+    box-shadow: none;
+    text-align: center;
 }
 
-.vert {
-    margin-left: 20px;
-    border-left: medium #4d4d4d solid;
-    height:100px;
-}
-
-#stakeholder {
-    margin-left: auto;
-    margin-right: auto;
-    width: 32%;
-    font-family: Edmondsans-Regular;
-}
-
-#intro {
-    /*position: absolute;*/
-    display: inline;
-    width: 150px;
-    /*margin-left: 20px;*/
-}
-
-#description_text {
+#description-text {
     background-color: #e6e7e9;
 }
 
-#tag_instructions {
+textarea {
+    resize: none;
     font-family: Edmondsans-Regular;
 }
 
-.small_hr {
-    background-color: #bebfc1;
-    height: 2px;
+#description-hr {
+    background-color: #d4d5d7;
+    height: 3px;
     width: 100%;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin-top: 15px;
 }
 
 .tag {
@@ -97,53 +84,17 @@
 }
 
 td {
-    /*border-right: 3px solid black;*/
     padding: 5px;
     padding-right: 15px;
 }
+
 td input, .tokensContainer {
     width: 100px;
 }
+
 table tr td:last-child,
 table tr th:last-child {
     border-right: 0;
-}
-
-#intro input {
-    height: 14px;
-    font-size: 12px;
-    line-height: 14px;
-    border: 0;
-    box-shadow: none;
-    text-align: center;
-    font-family: Edmondsans-Regular;
-}
-
-#top input {
-    height: 20px;
-    font-size: 13px;
-    line-height: 14px;
-    width: 300px;
-}
-
-#imageform {
-    text-align: center;
-    padding: 10px;
-    color: #555;
-    font-family: Edmondsans-Regular;
-}
-
-#imagesubmit {
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    color: #A09B9B;
-}
-
-textarea {
-    resize: none;
-    font-family: Edmondsans-Regular;
-
 }
 
 #submit-btn-wrapper {
